@@ -1,0 +1,5 @@
+userdao=dao.UserDaoImpl
+dishdao=dao.DishDaoImpl
+orderdao=dao.OrderDaoImpl
+carddao=dao.CardDaoImpl
+userservice=biz.UserService
