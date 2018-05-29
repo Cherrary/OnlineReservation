@@ -158,4 +158,21 @@ public class baseDao {
 			return  null;
 		}
 	}
+	public int getTotalRecords(String sql){
+		int count=0;
+		Connection conn =null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		try{		
+			conn=JDBCUtils.getJDBCUtils().getConnection();
+			ps= conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next())
+				count=rs.getInt(1);
+			return count;
+		}catch(Exception e){e.printStackTrace();return 0;}
+		finally{
+			JDBCUtils.getJDBCUtils().free(null, ps, conn);
+		}
+	}
 }

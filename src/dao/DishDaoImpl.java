@@ -45,5 +45,8 @@ public class DishDaoImpl extends baseDao implements IDishDao{
 		Object[] params={dish.getDiid()};
 		return this.DeleteObj(sqlde, params);
 	}
-
+	@Override
+	public int getTotalDishs(String sql){
+		return this.getTotalRecords(sql);
+	}
 }

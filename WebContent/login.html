@@ -48,7 +48,7 @@
 						<TD width=0 height=20></TD>
 						<TD align=middle><FONT
 							style="FONT-SIZE: 13px; COLOR: #000000">&nbsp;|&nbsp;</FONT><A
-							href="show.html" target=_self><FONT
+							href="#" target=_self><FONT
 							style="FONT-SIZE: 13px; COLOR: #000000">网站首页</FONT></A><FONT
 							style="FONT-SIZE: 13px; COLOR: #000000">&nbsp;|&nbsp;</FONT><A
 							href="#" target=_self><FONT
@@ -172,7 +172,7 @@
 				loginName参数用来保存用户名 
 				loginPass参数用来保存密码
 			-->
-			<form method="POST" name="loginForm" onSubmit="return checkUserInfo()" action="loginAction">
+			<form method="GET" name="loginForm" onSubmit="return checkUserInfo()" action="loginAction">
 			<table width="100%" border="0">
 				<tr>
 					<td width="15%">　</td>
@@ -195,15 +195,15 @@
 					<td>　</td>
 				</tr>
 				<tr>
+					<td height="33">　</td>
+					<td>　<input type="hidden" name="actiontype" value="login"></td>
 					<td>　</td>
-					<td colspan="2" align="center"><input type="submit"
-						name="Submit" value="登录"></td>
 					<td>　</td>
 				</tr>
 				<tr>
-					<td height="33">　</td>
 					<td>　</td>
-					<td>　</td>
+					<td colspan="2" align="center"><input type="submit"
+						name="Submit" value="登录"></td>
 					<td>　</td>
 				</tr>
 			</table>

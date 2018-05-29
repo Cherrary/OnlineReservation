@@ -47,4 +47,10 @@ public interface IDishDao {
 	 * @return
 	 */
 	public int DeleteUser(Dish dish);
+	/**
+	 * get total dishs
+	 * @param sql
+	 * @return
+	 */
+	public int getTotalDishs(String sql);
 }

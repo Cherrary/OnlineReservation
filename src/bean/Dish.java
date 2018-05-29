@@ -1,47 +1,49 @@
 package bean;
 
-public class Dish {
-	private int Diid;
-	private String Diname;
-	private double Diprice;
-	private double Didiscount;
-	private String Didescribe;
-	private String Diimage;
+public class Dish {	
+	
+	private int diid;
+	private String diname;
+	private double diprice;
+	private double didiscount;
+	private String didescribe;
+	private String diimage;
 	
 	public int getDiid() {
-		return Diid;
+		return diid;
 	}
 	public void setDiid(int diid) {
-		Diid = diid;
+		this.diid = diid;
 	}
 	public String getDiname() {
-		return Diname;
+		return diname;
 	}
 	public void setDiname(String diname) {
-		Diname = diname;
+		this.diname = diname;
 	}
 	public double getDiprice() {
-		return Diprice;
+		return diprice;
 	}
 	public void setDiprice(double diprice) {
-		Diprice = diprice;
+		this.diprice = diprice;
 	}
 	public double getDidiscount() {
-		return Didiscount;
+		return didiscount;
 	}
 	public void setDidiscount(double didiscount) {
-		Didiscount = didiscount;
+		this.didiscount = didiscount;
 	}
 	public String getDidescribe() {
-		return Didescribe;
+		return didescribe;
 	}
 	public void setDidescribe(String didescribe) {
-		Didescribe = didescribe;
+		this.didescribe = didescribe;
 	}
 	public String getDiimage() {
-		return Diimage;
+		return diimage;
 	}
 	public void setDiimage(String diimage) {
-		Diimage = diimage;
+		this.diimage = diimage;
 	}
+
 }
