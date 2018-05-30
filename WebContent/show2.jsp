@@ -159,7 +159,7 @@
 						<TBODY>
 							<TR bgColor=#dadada>
 								<TD width="100%" align="right" colspan="2"><a
-									href="viewcart"> <img src="images/lcart_cn.gif" border=0
+									href="viewCard"> <img src="images/lcart_cn.gif" border=0
 										width="97" height="30">
 								</a></TD>
 							</TR>

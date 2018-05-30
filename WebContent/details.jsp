@@ -162,7 +162,7 @@
 										<TBODY>
 											<TR bgColor=#dadada>
 
-												<TD width="100%" align="center">使用我学我会网上订餐系统，祝您用餐愉快！</TD>
+												<TD width="100%" align="center">我学我会网上点餐系统用户请直接登录</TD>
 											</TR>
 										</TBODY>
 									</TABLE> <BR>
@@ -183,21 +183,21 @@
 										<td><strong>${sessionScope.currentdish.diname}</strong></td>
 									</tr>
 									<tr>
-										<td height="21">使用我学我会网上订餐系统，祝您用餐愉快！<strike>使用我学</strike> <br> <font
-											color="#ff0000">使用我学${sessionScope.currentdish.diprice }使用我学</font>
-											<br> 使用我学
+										<td height="21">原价：<strike>人民币${sessionScope.currentdish.diprice}元</strike> <br> <font
+											color="#ff0000">现价：人民币${sessionScope.currentdish.diprice -sessionScope.currentdish.didiscount}元</font>
+											<br> 美味可口！
 										</td>
 									</tr>
 								</table>
 							</td>
 						</tr>
 						<tr>
-							<td height="30">使用我学: 22</td>
+							<td height="30">编号: ${sessionScope.currentdish.diid } </td>
 							<td>
 								<table width="145" border="0" cellspacing="1" cellpadding="0">
 									<tr>
 										<td align="center" width="70"><a href=#
-											onClick="window.open('addtocart?diid=${sessionScope.currentdish.diid}','shopcart','width=580,height=250,resizable=no,scrollbars=yes')">
+											onClick="window.open('addtoCard?diid=${sessionScope.currentdish.diid}','shopcart','width=580,height=250,resizable=no,scrollbars=yes')">
 												<img src="images/buy_cn.gif" border=0 width="60" height="20">
 										</a></td>
 									</tr>
@@ -206,7 +206,7 @@
 						</tr>
 					</table>
 					<P align=center>
-						<STRONG><FONT size=4>使用我学</FONT> </STRONG>
+						<STRONG><FONT size=4>${sessionScope.currentdish.didescribe }</FONT> </STRONG>
 					</P>
 					<HR align=center width="100%" color=#000000 noShade SIZE=1>
 
@@ -217,7 +217,7 @@
 							border=0>
 					</P>
 					<P align=center>
-						<FONT size=3>使用我学</FONT>
+						<FONT size=3>皮蛋瘦肉粥，鲜美爽口的小粥！</FONT>
 					</P> <br>
 				</td>
 			</tr>
