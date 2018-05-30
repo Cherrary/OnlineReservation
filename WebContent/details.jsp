@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,dao.*" pageEncoding="GBK"%>
+<%@ page language="java" import="java.util.*,dao.*"  pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -6,21 +6,16 @@
 <head>
 
 <title>My JSP 'detail.jsp' starting page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 
-
-<SCRIPT language=JavaScript type=text/JavaScript>
-<!--
-	-->
-</SCRIPT>
 </head>
 
 <BODY leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
-	<jsp:useBean id="loginuser" class="bean.User" scope="session"></jsp:useBean>
 	<table cellSpacing=0 cellPadding=0 width=776 align=center border=0>
 		<tr>
 			<td width="220" rowspan="3"></td>
@@ -30,7 +25,7 @@
 			<TD
 				style="FONT-SIZE: 24pt; FILTER: blur(add = 1, direction = 120, strength = 5); WIDTH: 100%; COLOR: #000000; FONT-FAMILY: arial; POSITION: relative"
 				noWrap><B><span class="STYLE1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;XXXX</span>
-					ç½‘ä¸Šè®¢é¤ç³»ç»Ÿ</B></TD>
+					ÍøÉÏ¶©²ÍÏµÍ³</B></TD>
 		</tr>
 		<tr>
 			<td></td>
@@ -47,19 +42,19 @@
 								<TD align=middle><FONT
 									style="FONT-SIZE: 13px; COLOR: #000000">&nbsp;|&nbsp;</FONT><A
 									href="#" target=_self><FONT
-										style="FONT-SIZE: 13px; COLOR: #000000">ç½‘ç«™é¦–é¡µ</FONT> </A><FONT
+										style="FONT-SIZE: 13px; COLOR: #000000">ÍøÕ¾Ê×Ò³</FONT> </A><FONT
 									style="FONT-SIZE: 13px; COLOR: #000000">&nbsp;|&nbsp;</FONT><A
 									href="#" target=_self><FONT
-										style="FONT-SIZE: 13px; COLOR: #000000">å…³äºæˆ‘ä»¬</FONT> </A><FONT
+										style="FONT-SIZE: 13px; COLOR: #000000">¹ØÓÚÎÒÃÇ</FONT> </A><FONT
 									style="FONT-SIZE: 13px; COLOR: #000000">&nbsp;|&nbsp;</FONT><A
 									href="#" target=_self><FONT
-										style="FONT-SIZE: 13px; COLOR: #000000">å®šé¤å¸®åŠ©</FONT> </A><FONT
+										style="FONT-SIZE: 13px; COLOR: #000000">¶¨²Í°ïÖú</FONT> </A><FONT
 									style="FONT-SIZE: 13px; COLOR: #000000">&nbsp;|&nbsp;</FONT><A
 									href="#" target=_self><FONT
-										style="FONT-SIZE: 13px; COLOR: #000000">ç½‘ä¸Šå®šé¤</FONT> </A><FONT
+										style="FONT-SIZE: 13px; COLOR: #000000">ÍøÉÏ¶¨²Í</FONT> </A><FONT
 									style="FONT-SIZE: 13px; COLOR: #000000">&nbsp;|&nbsp;</FONT><A
 									href="#" target=_self><FONT
-										style="FONT-SIZE: 13px; COLOR: #000000">å®¢æœä¸­å¿ƒ</FONT> </A><FONT
+										style="FONT-SIZE: 13px; COLOR: #000000">¿Í·şÖĞĞÄ</FONT> </A><FONT
 									style="FONT-SIZE: 13px; COLOR: #000000">&nbsp;|&nbsp;</FONT></TD>
 							</TR>
 						</TBODY>
@@ -142,7 +137,7 @@
 										<marquee style="FONT-SIZE: 13px; COLOR: #0000FF"
 											scrollamount='5' direction='left'>
 											<IMG height=15 src="images/tp009.gif" width=15>
-											æ¬¢è¿${sessionScope.loginuser.username}ä½¿ç”¨æˆ‘å­¦æˆ‘ä¼šç½‘ä¸Šè®¢é¤ç³»ç»Ÿï¼Œç¥æ‚¨ç”¨é¤æ„‰å¿«ï¼
+											»¶Ó­${sessionScope.loginuser.username}Ê¹ÓÃÎÒÑ§ÎÒ»áÍøÉÏ¶©²ÍÏµÍ³£¬×£ÄúÓÃ²ÍÓä¿ì£¡
 										</marquee>
 									</div> &nbsp;&nbsp;
 								</TD>
@@ -167,7 +162,7 @@
 										<TBODY>
 											<TR bgColor=#dadada>
 
-												<TD width="100%" align="center">æˆ‘å­¦æˆ‘ä¼šç½‘ä¸Šç‚¹é¤ç³»ç»Ÿç”¨æˆ·è¯·ç›´æ¥ç™»å½•</TD>
+												<TD width="100%" align="center">Ê¹ÓÃÎÒÑ§ÎÒ»áÍøÉÏ¶©²ÍÏµÍ³£¬×£ÄúÓÃ²ÍÓä¿ì£¡</TD>
 											</TR>
 										</TBODY>
 									</TABLE> <BR>
@@ -188,16 +183,16 @@
 										<td><strong>${sessionScope.currentdish.diname}</strong></td>
 									</tr>
 									<tr>
-										<td height="21">åŸä»·ï¼š <strike>äººæ°‘å¸0å…ƒ</strike> <br> <font
-											color="#ff0000">ç°ä»·ï¼šäººæ°‘å¸${sessionScope.currentdish.diprice }å…ƒ</font>
-											<br> ç¾å‘³å¯å£ï¼
+										<td height="21">Ê¹ÓÃÎÒÑ§ÎÒ»áÍøÉÏ¶©²ÍÏµÍ³£¬×£ÄúÓÃ²ÍÓä¿ì£¡<strike>Ê¹ÓÃÎÒÑ§</strike> <br> <font
+											color="#ff0000">Ê¹ÓÃÎÒÑ§${sessionScope.currentdish.diprice }Ê¹ÓÃÎÒÑ§</font>
+											<br> Ê¹ÓÃÎÒÑ§
 										</td>
 									</tr>
 								</table>
 							</td>
 						</tr>
 						<tr>
-							<td height="30">ç¼–å·: 22</td>
+							<td height="30">Ê¹ÓÃÎÒÑ§: 22</td>
 							<td>
 								<table width="145" border="0" cellspacing="1" cellpadding="0">
 									<tr>
@@ -211,7 +206,7 @@
 						</tr>
 					</table>
 					<P align=center>
-						<STRONG><FONT size=4>è¯¦ç»†èµ„æ–™</FONT> </STRONG>
+						<STRONG><FONT size=4>Ê¹ÓÃÎÒÑ§</FONT> </STRONG>
 					</P>
 					<HR align=center width="100%" color=#000000 noShade SIZE=1>
 
@@ -222,7 +217,7 @@
 							border=0>
 					</P>
 					<P align=center>
-						<FONT size=3>çš®è›‹ç˜¦è‚‰ç²¥ï¼Œé²œç¾çˆ½å£çš„å°ç²¥ï¼</FONT>
+						<FONT size=3>Ê¹ÓÃÎÒÑ§</FONT>
 					</P> <br>
 				</td>
 			</tr>
@@ -246,7 +241,7 @@
 								<TD align=middle><BR>
 									<P align=center>
 										<FONT color=#000000>Copyright &copy;
-											2010&nbsp;&nbsp;&nbsp;&nbsp; XXXXæœ‰é™å…¬å¸æ‰€æœ‰</FONT>
+											2010&nbsp;&nbsp;&nbsp;&nbsp; XXXXÓĞÏŞ¹«Ë¾ËùÓĞ</FONT>
 									</P>
 									<P align=center></P> <BR> <BR></TD>
 							</TR>
