@@ -1,22 +1,19 @@
 package action;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.alipay.api.AlipayClient;
-import com.alipay.api.DefaultAlipayClient;
-
-import utils.AlipayConfig;
-
 /**
  * Servlet implementation class PayAciton
  */
 @WebServlet("/payAction")
-public class PayAction extends HttpServlet {
+public class PayAction extends BaseControl {
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -30,16 +27,22 @@ public class PayAction extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//AlipayConfig alipayConfig = new AlipayConfig();
-		//AlipayClient alipayClient = new DefaultAlipayClient(alipayConfig.gatewayUrl,alipayConfig.app_id,alipayConfig.merchant_private_key,"json", alipayConfig.charset, alipayConfig.alipay_public_key, alipayConfig.sign_type);
-		request.setAttribute("WIDout_trade_no", 1);
-		request.setAttribute("WIDtotal_amount", 0.1);
 		request.setAttribute("WIDsubject", "onlineservation");
-		request.setAttribute("WIDbody", "delicious");
+		request.setAttribute("WIDout_trade_no", GetDateNow());
 		request.getRequestDispatcher("pay.jsp").forward(request, response);
 	}
-	
 
+	protected String GetDateNow() {
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMdHms");
+		Timestamp timeStamp = new Timestamp(System.currentTimeMillis());
+		String vNow="";
+		String[] time=timeStamp.toString().split("\\.");
+		logger.debug(timeStamp.toString()+"  "+time.length);
+		vNow = df.format(timeStamp)+time[1];
+		logger.debug(vNow);
+		return vNow;
+	}
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

@@ -159,11 +159,11 @@
 						<TBODY>
 							<TR bgColor=#dadada>
 								<TD width="100%" align="right" colspan="2"><a
-									href="viewCard"> <img src="images/lcart_cn.gif" border=0
+									href="viewCard?actiontype=default"> <img src="images/lcart_cn.gif" border=0
 										width="97" height="30">
 								</a></TD>
 							</TR>
-							<c:forEach var="currentdish" items="${requestScope.dishlist}"
+							<c:forEach var="currentdish" items="${sessionScope.dishlist}"
 								varStatus="status">
 								<c:if test="${status.index%2==0}">
 									<tr>
@@ -215,13 +215,13 @@
 										<a name="btnTopPage" id="btnTopPage"
 											href="loginAction?actiontype=pagelist&pageNO=1" title="Ê×Ò³">|&lt;&lt;
 										</a>&nbsp; <a name="btnPreviousPage" id="btnPreviousPage"
-											href="loginAction?actiontype=pagelist&pageNO=${requestScope.pageModel.prePageNO}"
+											href="loginAction?actiontype=pagelist&pageNO=${sessionScope.pageModel.prePageNO}"
 											title="ÉÏÒ³"> &lt; </a>&nbsp; <a name="btnNextPage"
 											id="btnNextPage"
-											href="loginAction?actiontype=pagelist&pageNO=${requestScope.pageModel.nextPageNO}"
+											href="loginAction?actiontype=pagelist&pageNO=${sessionScope.pageModel.nextPageNO}"
 											title="ÏÂÒ³"> &gt; </a>&nbsp; <a name="btnBottomPage"
 											id="btnBottomPage"
-											href="loginAction?actiontype=pagelist&pageNO=${requestScope.pageModel.bottomPageNO}"
+											href="loginAction?actiontype=pagelist&pageNO=${sessionScope.pageModel.bottomPageNO}"
 											title="Î²Ò³"> &gt;&gt;|</a>
 
 									</div>

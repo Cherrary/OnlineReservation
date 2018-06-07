@@ -93,10 +93,9 @@ public class LoginAction extends BaseControl {
 			int pageSize=6;
 			int pageNO=1;
 			PageModel<Dish> pageModel = dishService.findDish4PageList(pageNO, pageSize);
-			request.setAttribute("dishlist", pageModel.getList());
-			request.setAttribute("pageModel", pageModel);
 			session.setAttribute("dishlist", pageModel.getList());
 			session.setAttribute("pageModel", pageModel);
+			session.setAttribute("sum", 0);
 			System.out.println(pageModel.getList());
 			request.getRequestDispatcher("show2.jsp?pageNO="+pageNO+"&totalpages="+pageModel.getTotalPages()).forward(request, response);
 		}else{
@@ -111,9 +110,6 @@ public class LoginAction extends BaseControl {
 		DishService dishService = new DishService();
 		PageModel<Dish> pageModel = dishService.findDish4PageList(pageNO, pageSize);
 		logger.debug(pageModel.getList());
-		request.setAttribute("dishlist", pageModel.getList());
-		request.setAttribute("pageModel", pageModel);
-
 		HttpSession session = request.getSession(false);
 		session.setAttribute("dishlist", pageModel.getList());
 		session.setAttribute("pageModel", pageModel);

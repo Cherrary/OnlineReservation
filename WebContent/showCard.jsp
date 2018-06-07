@@ -48,7 +48,12 @@
 												<font color="#000000">编号</font>
 											</div>
 										</td>
-										<td width="610" height="22">
+										<td width="100" height="22">
+											<div align="CENTER">
+												<font color="#000000">图片</font>
+											</div>
+										</td>
+										<td width="510" height="22">
 											<div align="CENTER">
 												<font color="#000000">商品名称</font>
 											</div>
@@ -73,6 +78,10 @@
 										<tr bgcolor="#ffffff">
 											<td width="50" align="center" height="22">
 												<font color="#000000">${carditem.value.dish.diid}</font>
+											</td>
+											<td  vAlign=top width=90 height=90 align="center">
+												<IMG height=80 alt=点击图片查看内容
+														src="images/${carditem.value.dish.diimage}" width=80 border=0>
 											</td>
 											<td align="center" height="22">
 												<font color="#000000">${carditem.value.dish.diname}</font>
@@ -102,8 +111,11 @@
 										<td width="100" class="hh" height="22" align="center">
 											<font color="#000000">-</font>
 										</td>
+										<td width="100" class="hh" height="22" align="center">
+											<font color="#000000">-</font>
+										</td>
 										<td width="116" class="bb" align="center" height="22">
-											<font color="#000000">￥33 </font>
+											<font color="#000000">${sessionScope.sum }</font>
 										</td>
 									</tr>
 								</table>
@@ -112,16 +124,16 @@
 									align="CENTER" bgcolor="#c0c0c0">
 									<tr bgcolor="#dadada">
 										<td height="10" align="center">
-											<a href="#"><font color="#000000">清空购物车</font>
+											<a href="viewCard?actiontype=clearCard"><font color="#000000">清空购物车</font>
 											</a>
 										</td>
-										<td height="10" align="center" style="cursor: hand"
-											onClick="#">
-											<font color="#000000">继续购物</font>
+										<td height="10" align="center" >
+											<a href="show2.jsp?pageNO=1&totalpages=${sessionScope.pageModel.totalPages}">
+											<font color="#000000">继续购物</font></a>
 										</td>
-										<td height="10" align="center" style="cursor: hand"
-											onClick="#">
-											<font color="#000000">生成订单</font>
+										<td height="10" align="center">
+										<a href="payAction">
+											<font color="#000000">生成订单</font></a>
 										</td>
 									</tr>
 								</table>

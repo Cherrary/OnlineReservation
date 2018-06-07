@@ -46,6 +46,7 @@ public class AddtoCard extends HttpServlet {
 		Dish dishtocard = dishDao.findUserById(Integer.parseInt(diid));
 		System.out.print(dishtocard);
 		HttpSession session = request.getSession(false);
+		int sum = (int) session.getAttribute("sum");
 		Map< Integer,CardItemBean> card = (Map< Integer,CardItemBean>) session.getAttribute("card");
 		if (card == null) {
 			card = new HashMap<>();
@@ -61,8 +62,9 @@ public class AddtoCard extends HttpServlet {
 				out.println("新加入且添加成功!");
 			}
 		}
-		
 		session.setAttribute("card", card);
+		sum += dishtocard.getDiprice()-dishtocard.getDidiscount();
+		session.setAttribute("sum", sum);
 		out.close();
 		return;
 	}
