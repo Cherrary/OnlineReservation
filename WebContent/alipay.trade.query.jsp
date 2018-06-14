@@ -18,14 +18,14 @@
 	//商户订单号，商户网站订单系统中唯一订单号
 	String out_trade_no = new String(request.getParameter("WIDTQout_trade_no").getBytes("ISO-8859-1"),"UTF-8");
 	//支付宝交易号
-	String trade_no = new String(request.getParameter("WIDTQtrade_no").getBytes("ISO-8859-1"),"UTF-8");
+	//String trade_no = new String(request.getParameter("WIDTQtrade_no").getBytes("ISO-8859-1"),"UTF-8");
 	//请二选一设置
 	
-	alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\","+"\"trade_no\":\""+ trade_no +"\"}");
+	//alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\","+"\"trade_no\":\""+ trade_no +"\"}");
+	alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\"}");
 	
 	//请求
 	String result = alipayClient.execute(alipayRequest).getBody();
-	
 	//输出
 	out.println(result);
 %>

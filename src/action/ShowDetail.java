@@ -45,7 +45,7 @@ public class ShowDetail extends HttpServlet {
 			}
 		}
 		session.setAttribute("currentdish", currentdish);
-		request.getRequestDispatcher("details.jsp").forward(request, response);
+		request.getRequestDispatcher("detail.jsp").forward(request, response);
 		return;
 	}
 

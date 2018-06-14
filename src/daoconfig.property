@@ -2,4 +2,5 @@ userdao=dao.UserDaoImpl
 dishdao=dao.DishDaoImpl
 orderdao=dao.OrderDaoImpl
 carddao=dao.CardDaoImpl
+tradeorderdao=dao.TradeOrderImpl
 userservice=biz.UserService

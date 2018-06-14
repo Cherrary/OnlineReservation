@@ -3,11 +3,18 @@ package action;
 import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import bean.Address;
+import dao.AddressDaoImpl;
+import dao.IAddressDao;
 
 /**
  * Servlet implementation class PayAciton
@@ -29,6 +36,13 @@ public class PayAction extends BaseControl {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("WIDsubject", "onlineservation");
 		request.setAttribute("WIDout_trade_no", GetDateNow());
+		HttpSession session = request.getSession(false);
+		ArrayList<Address> addresslist=null;
+		IAddressDao addressDao = new AddressDaoImpl();
+		String sql = String.format("select * from Address where Aduserid=?");
+		Object[] params = {1};
+		addresslist=addressDao.findUserBy(sql,params);
+		session.setAttribute("addresslist", addresslist);
 		request.getRequestDispatcher("pay.jsp").forward(request, response);
 	}
 

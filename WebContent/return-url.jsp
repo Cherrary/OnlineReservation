@@ -62,7 +62,7 @@ h2 {
 }
 
 .new-btn-login {
-	background-color: #02aaf1;
+	background-color: #caa76a;
 	color: #FFFFFF;
 	font-weight: bold;
 	border: none;
@@ -205,7 +205,7 @@ h2 {
 		<tr>
 			<td width="10%"></td>
 			<td width="80%">
-				<form name=alipayment action=show2.jsp method=get target="_blank">
+				<form name=alipayment action=show.jsp method=get target="_blank">
 					<div id="body1" class="show" name="divcontent">
 						<dl class="content">
 							<dt>…Ãªß∂©µ•∫≈ £∫</dt>

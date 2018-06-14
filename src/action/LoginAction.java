@@ -82,6 +82,8 @@ public class LoginAction extends BaseControl {
 		String user=request.getParameter("loginName");
 		String pwd=request.getParameter("loginPass");
 		User users=new User();
+		request.setCharacterEncoding("GBK");
+		response.setContentType("text/html;charset=gb2312");
 		users.setUsername(user);
 		users.setUserpassword(pwd);
 		logger.debug(user+ "   "+pwd);
@@ -90,22 +92,24 @@ public class LoginAction extends BaseControl {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("loginuser", users);
 			DishService dishService = new DishService();
-			int pageSize=6;
+			int pageSize=9;
 			int pageNO=1;
 			PageModel<Dish> pageModel = dishService.findDish4PageList(pageNO, pageSize);
 			session.setAttribute("dishlist", pageModel.getList());
 			session.setAttribute("pageModel", pageModel);
 			session.setAttribute("sum", 0);
 			System.out.println(pageModel.getList());
-			request.getRequestDispatcher("show2.jsp?pageNO="+pageNO+"&totalpages="+pageModel.getTotalPages()).forward(request, response);
+			request.getRequestDispatcher("show.jsp?pageNO="+pageNO+"&totalpages="+pageModel.getTotalPages()).forward(request, response);
 		}else{
 			response.sendRedirect("login.html");
 		}
 	}
 	private void pageListView(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
 		logger.debug(request.getParameter("pageNO"));
+		request.setCharacterEncoding("GBK");
+		response.setContentType("text/html;charset=gb2312");
 		int pageNO = Integer.parseInt(request.getParameter("pageNO"));
-		int pageSize = 6;
+		int pageSize = 9;
 		//∑÷“≥≤È—Ø
 		DishService dishService = new DishService();
 		PageModel<Dish> pageModel = dishService.findDish4PageList(pageNO, pageSize);
@@ -113,7 +117,7 @@ public class LoginAction extends BaseControl {
 		HttpSession session = request.getSession(false);
 		session.setAttribute("dishlist", pageModel.getList());
 		session.setAttribute("pageModel", pageModel);
-		request.getRequestDispatcher("show2.jsp?pageNO=1&totalpages="+pageModel.getTotalPages()).forward(request, response);
+		request.getRequestDispatcher("show.jsp?pageNO=1&totalpages="+pageModel.getTotalPages()).forward(request, response);
 		
 	}
 }

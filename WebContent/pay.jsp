@@ -8,6 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="./css/styles.css" type="text/css" />
 <title>我学我会网上订餐系统支付页面</title>
+<script src="System/script/sweetalert2.all.min.js"></script>
+<script src="https://unpkg.com/promise-polyfill"></script>
+<script src="System/script/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="css/sweetalert2.min.css">
 <style>
 * {
 	margin: 0;
@@ -64,7 +68,7 @@ h2 {
 }
 
 .new-btn-login {
-	background-color: #02aaf1;
+	background-color: #caa76a;
 	color: #FFFFFF;
 	font-weight: bold;
 	border: none;
@@ -243,6 +247,28 @@ h2 {
 						<input id="WIDbody" name="WIDbody" />
 					</dd>
 					<hr class="one_line">
+					<dt>地址选择 ：</dt>
+					<Br>
+					<form action="radio_submit" method="get" >
+						<table width="60%" border="0" align="CENTER" cellpadding="2"
+							cellspacing="1" >
+							<tr><td colspan="2" align="left" ><strong>地址选择</strong></td>
+							<td colspan="2" align="right"><button id="input-type-multiple" type="button" style="background-color:#ffffff;border:0"><img src="images/plus.png"  ></button> </td></tr>
+							<c:forEach var="addressitems" items="${sessionScope.addresslist}">
+								<tr bgcolor="#ffffff">
+									<td  width="5%" align="center"><input type="radio" name="address" value="${addressitems.adid }" checked />${addressitems.adid }</td>
+									<td align="center" width="50%" height="22"><font color="#000000">${addressitems.adaddress}</font>
+										<input type="hidden" name="prodid" value="500047"></td>
+									<td width="25%" class="hh" align="center" height="22">
+										${addressitems.adlinkman}</td>
+									<td width="20%" class="bb" align="center" height="22"><font
+										color="#000000">${addressitems.adphone}</font>
+									</td>
+								</tr>
+							</c:forEach>
+						</table>
+						</form>
+					<hr class="one_line">
 					<dt></dt>
 					<dd id="btn-dd">
 						<span class="new-btn-login-sp">
@@ -259,5 +285,67 @@ h2 {
 			</ul>
 		</div>
 	</div>
+	<script>
+        var oDemo = document.getElementById("radio_submit");
+        oDemo.addEventListener('click', function() {
+            var e = event || window.event;
+            if (e.target && e.target.nodeName.toUpperCase() == "INPUT") {
+                console.log(this);
+                console.log(e.target);
+                console.log(e.target.value);
+                
+            }
+        }, false);
+    </script>
+    	<script>
+      document.getElementById("input-type-multiple").onclick = function(){
+    	  formValues =  swal({
+    		  title: '添加地址',
+    		  width:600,
+    		  html:
+    		    '<table cellSpacing=2 cellPadding=2 width="100%" border=0><tr><td width="20%"  align="right" style="vertical-align: middle; ">详细地址<font color="#DC143C"><i>*</i></font>&nbsp;&nbsp;：</td><td width="80%">'+
+    		    '<textarea id="swal-input1" cols="60" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层和房间号等信息"></textarea></td></tr>'+
+    		    '<tr><td align="right" style="vertical-align: middle; ">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名<font color="#DC143C"><i>*</i></font>&nbsp;&nbsp;：</td><td align="left"><input id="swal-input2"  placeholder="长度不超过25个字符" ></td></tr>'+
+    		    '<tr><td align="right"  style="vertical-align: middle; ">手机号码<font color="#DC143C"><i>*</i></font>&nbsp;&nbsp;：</td><td align="left"><input id="swal-input3"></td></tr></table>',
+    		  focusConfirm: false,
+    		  preConfirm: () => {
+    		    return [
+    		      document.getElementById('swal-input1').value,
+    		      document.getElementById('swal-input2').value,
+    		      document.getElementById('swal-input3').value
+    		    ]
+    		  }
+    		/* }).then(function(formValues){
+    			if (formValues) {
+    				$.get('addAddress?message='+formValues)
+    				.done
+    		  	swal(JSON.stringify(formValues))
+    			}
+    		}) */
+     		 }).then(function(formValues){
+     			if (formValues) {
+     				//setTimeout(function(){
+     					//swal($.ajax({url:"addAddress?message="+formValues}))
+     					var ajaxObj = new XMLHttpRequest();
+     					var reg = new RegExp('"',"g"); 
+     					var h=JSON.stringify(formValues);
+     					h=h.replace(reg,"");
+     					h=h.substring(8);
+     					h=h.substring(0,h.length-2);
+     					swal(h);
+     					ajaxObj.open('get', 'addAddress?message='+h);
+     					//swal('addAddress?message='+h);
+     					ajaxObj.send();
+     					swal({
+     						title:'Success'+ajaxObj.responseText,
+     						type:'success',
+     						confirmButtonText: 'OK',
+     					    showCancelButton: false
+     					})
+     					 }
+     			})
+    	};
+	</script>
+    
 </body>
 </html>
