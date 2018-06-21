@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*,dao.*,bean.*"
+<%@ page language="java" import="java.util.*,dao.*,bean.*,biz.*,utils.*"
 	pageEncoding="GBK"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -29,13 +29,13 @@
 	var mk_header_trans_offset = 0;
 </script>
 <link rel='stylesheet' id='theme-styles-css'
-	href='http://www.tinkeringmonkey.com/wp-content/themes/ken/stylesheet/css/styles.min.css'
+	href='css/styles.min.css'
 	type='text/css' media='all' />
 <link rel='stylesheet' id='theme-options-css'
 	href='http://www.tinkeringmonkey.com/wp-content/uploads/mk_assets/theme-options-production.css'
 	type='text/css' media='all' />
 <link rel='stylesheet' id='mk-style-css'
-	href='http://www.tinkeringmonkey.com/wp-content/themes/ken-child-3.0/style.css'
+	href='css/style3.css'
 	type='text/css' media='all' />
 <style type='text/css'>
 body, .theme-main-wrapper {
@@ -75,52 +75,9 @@ body, .theme-main-wrapper {
 	background-color: #ffffff;
 }
 
-#mk-header
-
- 
-
-.transparent-header-sticky
-,
-#mk-header
-
-
-.sticky-header
-
-
-:not
-
- 
-
-(
-.transparent-header
-
-
-	
-
-){
-border-bottom
-
-
-:
-
- 
-
-1
-px
-
-
-;
-solid
-
-
-:
-
- 
-
-#e6e6e6
-
-
-;
+#mk-header .transparent-header-sticky,#mk-header .sticky-header:not(.transparent-header){
+border-bottom:1px;
+solid:#e6e6e6;
 }
 #mk-footer {
 	background-color: #191919;
@@ -131,6 +88,31 @@ solid
 </style>
 <script type='text/javascript'
 	src='http://www.tinkeringmonkey.com/wp-includes/js/jquery/jquery.js'></script>
+<script type="text/javascript">
+	onload = function() {
+<%PageModel<Dish> model = (PageModel<Dish>) session.getAttribute("pageModel");
+			if (model == null) {
+				DishService dishService = new DishService();
+				int pageSize = 9;
+				int pageNO = 1;
+				PageModel<Dish> pageModel = dishService.findDish4PageList(pageNO, pageSize);
+				session.setAttribute("dishlist", pageModel.getList());
+				session.setAttribute("pageModel", pageModel);
+				session.setAttribute("sum", 0);
+				//request.setAttribute("pageNO", pageNO);
+				//request.setAttribute("totalpages", pageModel.getTotalPages());
+				session.setAttribute("pageNO", pageNO);
+				session.setAttribute("totalpages", pageModel.getTotalPages());
+			}
+			if (session.getAttribute("loginuser") == null) {
+				session.setAttribute("loginaction", "登录/注册");
+				session.setAttribute("loginactionurl", "NewFile.html");
+			} else {
+				session.setAttribute("loginaction", "我的信息");
+				session.setAttribute("loginactionurl", "myinformation.jsp");
+			}%>
+	};
+</script>
 </head>
 
 
@@ -159,12 +141,12 @@ solid
 					</li>
 					<li class="mk-header-logo  "><a
 						href="http://www.tinkeringmonkey.com/" title="Tinkering Monkey"><img
-							alt="Tinkering Monkey" class="mk-dark-logo"
-							src="images/xiao.png"
-									data-retina-src="images/da.png"></a></li>
+							alt="Tinkering Monkey" class="mk-dark-logo" src="images/xiao.png"
+							data-retina-src="images/da.png"></a></li>
 					<li id="menu-item-19446"
 						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu"><a
-						class="menu-item-link" href="show.jsp?pageNO=1&totalpages=${sessionScope.pageModel.totalPages}">首页</a></li>
+						class="menu-item-link"
+						href="show.jsp">首页</a></li>
 					<li id="menu-item-21509"
 						class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
 						class="menu-item-link" href="viewCard?actiontype=default">购物车</a></li>
@@ -173,7 +155,7 @@ solid
 						class="menu-item-link" href="showOrder?actiontype=show">我的订单</a></li>
 					<li id="menu-item-24402"
 						class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
-						class="menu-item-link" title="get-started" href="#">修改信息</a></li>
+						class="menu-item-link" href="${sessionScope.loginactionurl }">${sessionScope.loginaction}</a></li>
 					<li class="mk-header-social inside-grid"></li>
 				</ul>
 				</nav>
@@ -208,8 +190,7 @@ solid
 												<TBODY>
 													<TR>
 														<TD><A href=# target=_blank><STRONG>${currentdish.diname}</STRONG>
-														</A> <BR>
-														<FONT color=#ff0000 size="2">现价：人民币${currentdish.diprice}元</FONT>
+														</A> <BR> <FONT color=#ff0000 size="2">现价：人民币${currentdish.diprice}元</FONT>
 															<BR> <font size="2.5">${currentdish.didescribe}</font></TD>
 													</TR>
 												</TBODY>
@@ -229,9 +210,9 @@ solid
 						<td width="14%"></td>
 						<td height="2" colspan="2">
 							<div align="left">
-								<font color="#000000" size="2">&nbsp;共&nbsp${param.totalpages}&nbsp页</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<font color="#000000" size="2">&nbsp;共&nbsp${sessionScope.totalpages}&nbsp页</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<font color="#000000" size="2">当前第</font>&nbsp <font
-									color="#000000" size="2">${param.pageNO}</font>&nbsp <font
+									color="#000000" size="2">${sessionScope.pageNO}</font>&nbsp <font
 									color="#000000" size="2">页</font>
 							</div>
 						</td>
@@ -265,41 +246,41 @@ solid
 			<div class="footer-wrapper  ">
 				<div class="mk-padding-wrapper">
 					<h1></h1>
-					<table width="100%" cellSpacing=0 cellPadding=0 align=center
-						border=0>
-						<tr>
-							<th width="15%"></th>
-							<th width="30%"><div class="widgettitle" align="center">关于我们</div></th>
-							<th width="20%"><div class="widgettitle" align="center">我们的团队</div></th>
-							<th width="20%"><div class="widgettitle" align="center">帮助与其他</div></th>
-							<th width="15%"></th>
-						</tr>
-						<tr>
-							<td rowspan="5"></td>
-							<td rowspan="5">11111</td>
-							<td>陈佳</td>
-							<td>常见问题</td>
-							<td rowspan="5"></td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>在线客服</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>我要加盟</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>市场合作</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>捐赠</td>
-						</tr>
-					</table>
+				<table width="100%" cellSpacing=0 cellPadding=0 align=center
+							border=0>
+							<tr>
+								<th width="15%"></th>
+								<th width="30%"><div class="widgettitle" align="center">关于我们</div></th>
+								<th width="20%"><div class="widgettitle" align="center">我们的团队</div></th>
+								<th width="20%"><div class="widgettitle" align="center">帮助与其他</div></th>
+								<th width="15%"></th>
+							</tr>
+							<tr>
+								<td rowspan="5"></td>
+								<td rowspan="5">本系统为广大用户提供网上订餐的功能，使得广大用户可以足不出户就能快速便捷的了解到菜品详情，并且能够在网上下单点菜！</td>
+								<td>陈佳</td>
+								<td>常见问题</td>
+								<td rowspan="5"></td>
+							</tr>
+							<tr>
+								<td>田媛</td>
+								<td>在线客服</td>
+							</tr>
+							<tr>
+								<td>吕文娇</td>
+								<td>我要加盟</td>
+							</tr>
+							<tr>
+								<td>刘晓宇</td>
+								<td>市场合作</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>捐赠</td>
+							</tr>
+						</table>
+					</div>
 				</div>
-			</div>
 			<div class="clearboth"></div>
 			<div id="sub-footer" align="center">
 				<div class="item-holder">

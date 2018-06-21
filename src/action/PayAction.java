@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Address;
+import bean.User;
 import dao.AddressDaoImpl;
 import dao.IAddressDao;
 
@@ -34,13 +35,18 @@ public class PayAction extends BaseControl {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		if(session.getAttribute("loginuser")==null){
+			response.sendRedirect("NewFile.html");
+			return;
+		}
 		request.setAttribute("WIDsubject", "onlineservation");
 		request.setAttribute("WIDout_trade_no", GetDateNow());
-		HttpSession session = request.getSession(false);
 		ArrayList<Address> addresslist=null;
 		IAddressDao addressDao = new AddressDaoImpl();
 		String sql = String.format("select * from Address where Aduserid=?");
-		Object[] params = {1};
+		User loginuser=(User)session.getAttribute("loginuser");
+		Object[] params = {loginuser.getUserid()};
 		addresslist=addressDao.findUserBy(sql,params);
 		session.setAttribute("addresslist", addresslist);
 		request.getRequestDispatcher("pay.jsp").forward(request, response);

@@ -34,13 +34,13 @@
 	var mk_header_trans_offset = 0;
 </script>
 <link rel='stylesheet' id='theme-styles-css'
-	href='http://www.tinkeringmonkey.com/wp-content/themes/ken/stylesheet/css/styles.min.css'
+	href='css/styles.min.css'
 	type='text/css' media='all' />
 <link rel='stylesheet' id='theme-options-css'
 	href='http://www.tinkeringmonkey.com/wp-content/uploads/mk_assets/theme-options-production.css'
 	type='text/css' media='all' />
 <link rel='stylesheet' id='mk-style-css'
-	href='http://www.tinkeringmonkey.com/wp-content/themes/ken-child-3.0/style.css'
+	href='css/style3.css'
 	type='text/css' media='all' />
 <style type='text/css'>
 body, .theme-main-wrapper {
@@ -80,52 +80,9 @@ body, .theme-main-wrapper {
 	background-color: #ffffff;
 }
 
-#mk-header
-
- 
-
-.transparent-header-sticky
-,
-#mk-header
-
-
-.sticky-header
-
-
-:not
-
- 
-
-(
-.transparent-header
-
-
-	
-
-){
-border-bottom
-
-
-:
-
- 
-
-1
-px
-
-
-;
-solid
-
-
-:
-
- 
-
-#e6e6e6
-
-
-;
+#mk-header.transparent-header-sticky,#mk-header.sticky-header:not(.transparent-header){
+border-bottom:1px;
+solid:#e6e6e6;
 }
 #mk-footer {
 	background-color: #191919;
@@ -169,16 +126,16 @@ solid
 									data-retina-src="images/da.png"></a></li>
 					<li id="menu-item-19446"
 						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu"><a
-						class="menu-item-link" href="show.jsp?pageNO=1&totalpages=${sessionScope.pageModel.totalPages}">首页</a></li>
+						class="menu-item-link" href="show.jsp">首页</a></li>
 					<li id="menu-item-21509"
 						class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
 						class="menu-item-link" href="viewCard?actiontype=default">购物车</a></li>
 					<li id="menu-item-20493"
 						class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
-						class="menu-item-link" href="#">我的订单</a></li>
+						class="menu-item-link" href="showOrder?actiontype=show">我的订单</a></li>
 					<li id="menu-item-24402"
 						class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
-						class="menu-item-link" title="get-started" href="#">修改信息</a></li>
+						class="menu-item-link" href="${sessionScope.loginactionurl }">${sessionScope.loginaction}</a></li>
 					<li class="mk-header-social inside-grid"></li>
 				</ul>
 				</nav>
@@ -222,7 +179,7 @@ solid
 								<table  border="0" cellspacing="1" cellpadding="0">
 									<tr>
 										<td style="vertical-align:middle; text-align:left;" width="70"><a href=#
-											onClick="window.open('addtoCard?diid=${sessionScope.currentdish.diid}','shopcart','width=580,height=250,resizable=no,scrollbars=yes')">
+											onClick="add(${sessionScope.currentdish.diid})">
 												<img src="images/buy_cn.gif" border=0 width="60" height="20">
 										</a></td>
 									</tr>
@@ -252,41 +209,41 @@ solid
 			<div class="footer-wrapper  ">
 				<div class="mk-padding-wrapper">
 					<h1></h1>
-					<table width="100%" cellSpacing=0 cellPadding=0 align=center
-						border=0>
-						<tr>
-							<th width="15%"></th>
-							<th width="30%"><div class="widgettitle" align="center">关于我们</div></th>
-							<th width="20%"><div class="widgettitle" align="center">我们的团队</div></th>
-							<th width="20%"><div class="widgettitle" align="center">帮助与其他</div></th>
-							<th width="15%"></th>
-						</tr>
-						<tr>
-							<td rowspan="5"></td>
-							<td rowspan="5">11111</td>
-							<td>陈佳</td>
-							<td>常见问题</td>
-							<td rowspan="5"></td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>在线客服</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>我要加盟</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>市场合作</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>捐赠</td>
-						</tr>
-					</table>
+				<table width="100%" cellSpacing=0 cellPadding=0 align=center
+							border=0>
+							<tr>
+								<th width="15%"></th>
+								<th width="30%"><div class="widgettitle" align="center">关于我们</div></th>
+								<th width="20%"><div class="widgettitle" align="center">我们的团队</div></th>
+								<th width="20%"><div class="widgettitle" align="center">帮助与其他</div></th>
+								<th width="15%"></th>
+							</tr>
+							<tr>
+								<td rowspan="5"></td>
+								<td rowspan="5">本系统为广大用户提供网上订餐的功能，使得广大用户可以足不出户就能快速便捷的了解到菜品详情，并且能够在网上下单点菜！</td>
+								<td>陈佳</td>
+								<td>常见问题</td>
+								<td rowspan="5"></td>
+							</tr>
+							<tr>
+								<td>田媛</td>
+								<td>在线客服</td>
+							</tr>
+							<tr>
+								<td>吕文娇</td>
+								<td>我要加盟</td>
+							</tr>
+							<tr>
+								<td>刘晓宇</td>
+								<td>市场合作</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>捐赠</td>
+							</tr>
+						</table>
+					</div>
 				</div>
-			</div>
 			<div class="clearboth"></div>
 			<div id="sub-footer" align="center">
 				<div class="item-holder">
@@ -300,7 +257,18 @@ solid
 		</div>
 	</div>
 
-
+    	<script>
+      function add(diid){
+    	  var ajaxObj = new XMLHttpRequest();
+			ajaxObj.open('get', 'addtoCard?diid='+diid);
+			ajaxObj.send();
+    	  swal({
+    		  title: '添加成功！',
+    		  width:600,
+    		  confirmButtonColor:"#caa76a"
+    	  })
+    	};
+	</script>
 
 
 	<script type="text/javascript">

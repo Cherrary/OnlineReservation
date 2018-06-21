@@ -4,7 +4,7 @@ public class User {
 	private int Userid;
 	private String Username;
 	private String Userpassword;
-	
+	private String Userphone;
 	public int getUserid() {
 		return Userid;
 	}
@@ -22,5 +22,11 @@ public class User {
 	}
 	public void setUserpassword(String userpassword) {
 		Userpassword = userpassword;
+	}
+	public String getUserphone() {
+		return Userphone;
+	}
+	public void setUserphone(String userphone) {
+		Userphone = userphone;
 	}
 }

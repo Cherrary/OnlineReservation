@@ -39,14 +39,17 @@ public class UserDaoImplTest {
 		User user = new User();
 		user.setUsername("cherry");
 		user.setUserpassword("1234");
+		user.setUserphone("13567634894");
 		assertEquals(1, userdao.InsertUser(user));
 	}
 
 	@Test
 	public void testUpdateUser() {
 		User user = new User();
-		user.setUserpassword("1111");
-		user.setUserid(1);
+		user.setUsername("cherries");
+		user.setUserpassword("1234");
+		user.setUserphone("13567634894");
+		user.setUserid(3);
 		assertEquals(1, userdao.UpdateUser(user));
 	}
 

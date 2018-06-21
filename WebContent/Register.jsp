@@ -83,10 +83,52 @@ body, .theme-main-wrapper {
 	background-position: right bottom;
 	background-attachment: scroll;
 }
+
 </style>
 <script type='text/javascript'
 	src='http://www.tinkeringmonkey.com/wp-includes/js/jquery/jquery.js'></script>
-<script>
+		<script src="System/script/sweetalert2.all.min.js"></script>
+<script src="https://unpkg.com/promise-polyfill"></script>
+<script src="System/script/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="css/sweetalert2.min.css">
+<script language="javascript">
+	function checkUserInfo() {
+	 if(document.loginForm.loginName.value==""){
+   	  swal({
+   		  title: '用户名不能为空！',
+   		  width:300,
+   		  confirmButtonColor:"#caa76a"
+   	  });
+	    return false;
+	 }
+	 if(document.loginForm.loginPass.value==""){
+  	  swal({
+  		  title: '密码不能为空！',
+  		  width:300,
+  		  confirmButtonColor:"#caa76a"
+  	  });
+	    return false;
+	 }
+
+	 if(document.loginForm.phone.value==""){
+  	  swal({
+  		  title: '电话号码不能为空！',
+  		  width:300,
+  		  confirmButtonColor:"#caa76a"
+  	  });
+	    return false;
+	 }
+
+	 if(document.loginForm.code.value==""){
+  	  swal({
+  		  title: '验证码不能为空！',
+  		  width:300,
+  		  confirmButtonColor:"#caa76a"
+  	  });
+	    return false;
+	 }
+	}
+	
 	function sendSMS() {
 		var Number = window.document.getElementById("phone").value;
 		//window.open("sendSMS?phone="+Number);
@@ -151,7 +193,7 @@ body, .theme-main-wrapper {
 						class="menu-item-link" href="NewFile.html">登录</a></li>
 					<li id="menu-item-20493"
 						class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
-						class="menu-item-link" href="Register.jsp">注册</a></li>
+						class="menu-item-link" href="#">注册</a></li>
 					<li class="mk-header-social inside-grid"></li>
 				</ul>
 				</nav>
@@ -208,6 +250,7 @@ body, .theme-main-wrapper {
 							name="Submit" value="注册"></td>
 						<td></td>
 					</tr>
+					
 				</table>
 			</form>
 
@@ -217,41 +260,41 @@ body, .theme-main-wrapper {
 			<div class="footer-wrapper  ">
 				<div class="mk-padding-wrapper">
 					<h1></h1>
-					<table width="100%" cellSpacing=0 cellPadding=0 align=center
-						border=0>
-						<tr>
-							<th width="15%"></th>
-							<th width="30%"><div class="widgettitle" align="center">关于我们</div></th>
-							<th width="20%"><div class="widgettitle" align="center">我们的团队</div></th>
-							<th width="20%"><div class="widgettitle" align="center">帮助与其他</div></th>
-							<th width="15%"></th>
-						</tr>
-						<tr>
-							<td rowspan="5"></td>
-							<td rowspan="5">11111</td>
-							<td>陈佳</td>
-							<td>常见问题</td>
-							<td rowspan="5"></td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>在线客服</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>我要加盟</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>市场合作</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>捐赠</td>
-						</tr>
-					</table>
+				<table width="100%" cellSpacing=0 cellPadding=0 align=center
+							border=0>
+							<tr>
+								<th width="15%"></th>
+								<th width="30%"><div class="widgettitle" align="center">关于我们</div></th>
+								<th width="20%"><div class="widgettitle" align="center">我们的团队</div></th>
+								<th width="20%"><div class="widgettitle" align="center">帮助与其他</div></th>
+								<th width="15%"></th>
+							</tr>
+							<tr>
+								<td rowspan="5"></td>
+								<td rowspan="5">本系统为广大用户提供网上订餐的功能，使得广大用户可以足不出户就能快速便捷的了解到菜品详情，并且能够在网上下单点菜！</td>
+								<td>陈佳</td>
+								<td>常见问题</td>
+								<td rowspan="5"></td>
+							</tr>
+							<tr>
+								<td>田媛</td>
+								<td>在线客服</td>
+							</tr>
+							<tr>
+								<td>吕文娇</td>
+								<td>我要加盟</td>
+							</tr>
+							<tr>
+								<td>刘晓宇</td>
+								<td>市场合作</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>捐赠</td>
+							</tr>
+						</table>
+					</div>
 				</div>
-			</div>
 			<div class="clearboth"></div>
 			<div id="sub-footer" align="center">
 				<div class="item-holder">

@@ -46,7 +46,8 @@ public class ShowOrder extends BaseControl {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		if((User)session.getAttribute("loginuser")==null){
-			response.sendRedirect("login.html");
+			response.sendRedirect("NewFile.html");
+			return;
 		}
 		String actiontype = request.getParameter("actiontype");
 		logger.debug(actiontype);

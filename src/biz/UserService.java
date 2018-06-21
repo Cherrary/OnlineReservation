@@ -17,4 +17,11 @@ public class UserService {
 			return false;
 		else return true;
 	}
+	public int findId(String username){
+		IUserDao userDao = (IUserDao)DaoFactory.getDaoFactory().newInstance("userdao");
+		String sql = String.format("select * from User where Username=?");
+		Object []params={username};
+		ArrayList<User> userlist = userDao.findUserBy(sql, params);
+		return userlist.get(0).getUserid();
+	}
 }

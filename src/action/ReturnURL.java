@@ -69,10 +69,7 @@ public class ReturnURL extends HttpServlet {
 		String total_amount = new String(request.getParameter("total_amount").getBytes("ISO-8859-1"), "UTF-8");
 	
 		HttpSession session = request.getSession(false);
-		//User user = (User) session.getAttribute("loginuser");
-		//if(user==null){
-		//	request.getRequestDispatcher("NewFile.html").forward(request, response);
-		///}
+		
 		ITradeOrderDao tradeOrderDao =  new TradeOrderImpl();
 		TradeOrder tradeOrder = new TradeOrder();
 		tradeOrder.setOrduserid(((User)session.getAttribute("loginuser")).getUserid());

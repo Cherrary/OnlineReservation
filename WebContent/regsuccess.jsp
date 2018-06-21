@@ -144,7 +144,7 @@ body, .theme-main-wrapper {
 			</tr>
 			<tr>
 			<td></td>
-			<td><font size="4" ><span id="sp">5</span></font>秒后自动跳转首页，或<a href="NewFile.html">点击跳转</a></td>
+			<td><font size="4" ><span id="sp">5</span></font>秒后自动跳转首页，或<a href="show.jsp">点击跳转</a></td>
 			<tr>
 			</tbody>
 			</table>
@@ -159,7 +159,7 @@ body, .theme-main-wrapper {
         if(x>0){  
         document.getElementById("sp").innerHTML=x;  //每次设置的x的值都不一样了。  
         }else{  
-        location.href='NewFile.html';  
+        location.href='show.jsp';  
         }  
     }  
 </script> 

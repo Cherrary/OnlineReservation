@@ -28,13 +28,13 @@
 	var mk_header_trans_offset = 0;
 </script>
 <link rel='stylesheet' id='theme-styles-css'
-	href='http://www.tinkeringmonkey.com/wp-content/themes/ken/stylesheet/css/styles.min.css'
+	href='css/styles.min.css'
 	type='text/css' media='all' />
 <link rel='stylesheet' id='theme-options-css'
 	href='http://www.tinkeringmonkey.com/wp-content/uploads/mk_assets/theme-options-production.css'
 	type='text/css' media='all' />
 <link rel='stylesheet' id='mk-style-css'
-	href='http://www.tinkeringmonkey.com/wp-content/themes/ken-child-3.0/style.css'
+	href='css/style3.css'
 	type='text/css' media='all' />
 <style type='text/css'>
 body, .theme-main-wrapper {
@@ -74,74 +74,9 @@ body, .theme-main-wrapper {
 	background-color: #ffffff;
 }
 
-#mk-header
-
-
- 
-
-
-.transparent-header-sticky
-,
-#mk-header
-
-
-
-
-.sticky-header
-
-
-
-
-:not
-
-
- 
-
-
-(
-.transparent-header
-
-
-
-	
-
-
-){
-border-bottom
-
-
-
-
-:
-
-
- 
-
-
-1
-px
-
-
-
-
-;
-solid
-
-
-
-
-:
-
-
- 
-
-
-#e6e6e6
-
-
-
-
-;
+#mk-header.transparent-header-sticky,#mk-header.sticky-header:not(.transparent-header){
+	border-bottom:1px;
+	solid:#e6e6e6;
 }
 #mk-footer {
 	background-color: #191919;
@@ -149,9 +84,79 @@ solid
 	background-position: right bottom;
 	background-attachment: scroll;
 }
+
+.goods_cut {
+	background: url("images/minus.png") no-repeat scroll 0 0 transparent;
+	border: 0 none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-size: 0;
+	height: 15px;
+	line-height: 0;
+	margin: 8px 3px 0;
+	width: 15px;
+}
+
+input.goodsBuyBox, input.number {
+	border: 1px solid #DDDDDD;
+	float: left;
+	font-size: 10px;
+	height: 18px;
+	line-height: 18px;
+	margin: 5px 6px 0;
+	padding: 0;
+	text-align: center;
+	width: 32px;
+}
+
+.goods_add {
+	background: url("images/pluss.png") no-repeat scroll 0 -1px transparent;
+	border: 0 none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	font-size: 0;
+	height: 15px;
+	line-height: 0;
+	margin: 8px 3px 0;
+	width: 15px;
+}
+
+.goods_number_tit {
+	display: block;
+	background: none;
+	width: 60px;
+	height: 25px;
+	line-height: 22px;
+	float: left;
+}
 </style>
 <script type='text/javascript'
 	src='http://www.tinkeringmonkey.com/wp-includes/js/jquery/jquery.js'></script>
+<script language="javascript" type="text/javascript">  
+     function goods_cut(val){  
+         var num_val=document.getElementById('number'+val);  
+         var new_num=num_val.value;  
+         if(isNaN(new_num)){alert('请输入数字');return false}  
+         if(new_num<=1){
+        	 return;
+         }
+         var Num = parseInt(new_num);  
+         if(Num>1)NumNum=Num-1;  
+         num_val.value=Num;  
+         window.location.href='viewCard?actiontype=subtract&diid='+val;
+     }  
+     function goods_add(val){  
+         var num_val=document.getElementById('number'+val);  
+         var new_num=num_val.value;  
+         if(isNaN(new_num)){alert('请输入数字');return false}  
+         var Num = parseInt(new_num);  
+         NumNum=Num+1;  
+         num_val.value=Num;  
+         window.location.href='viewCard?actiontype=addup&diid='+val; 
+     }  
+ </script>
 </head>
 
 
@@ -180,21 +185,21 @@ solid
 					</li>
 					<li class="mk-header-logo  "><a
 						href="http://www.tinkeringmonkey.com/" title="Tinkering Monkey"><img
-							alt="Tinkering Monkey" class="mk-dark-logo"
-							src="images/xiao.png"
-									data-retina-src="images/da.png"></a></li>
+							alt="Tinkering Monkey" class="mk-dark-logo" src="images/xiao.png"
+							data-retina-src="images/da.png"></a></li>
 					<li id="menu-item-19446"
 						class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-mega-menu"><a
-						class="menu-item-link" href="show.jsp?pageNO=1&totalpages=${sessionScope.pageModel.totalPages}">首页</a></li>
+						class="menu-item-link"
+						href="show.jsp">首页</a></li>
 					<li id="menu-item-21509"
 						class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
 						class="menu-item-link" href="viewCard?actiontype=default">购物车</a></li>
 					<li id="menu-item-20493"
 						class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
-						class="menu-item-link" href="#">我的订单</a></li>
+						class="menu-item-link" href="showOrder?actiontype=show">我的订单</a></li>
 					<li id="menu-item-24402"
 						class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
-						class="menu-item-link" title="get-started" href="#">修改信息</a></li>
+						class="menu-item-link" href="${sessionScope.loginactionurl }">${sessionScope.loginaction}</a></li>
 					<li class="mk-header-social inside-grid"></li>
 				</ul>
 				</nav>
@@ -224,7 +229,7 @@ solid
 								<td>
 									<table width="100%" border="0" align="CENTER" cellpadding="2"
 										cellspacing="1" bgcolor="#caa76a">
-										<tr >
+										<tr>
 											<td width="50">
 												<div align="CENTER">
 													<font color="#000000" size="2">编号</font>
@@ -245,35 +250,50 @@ solid
 													<font color="#000000" size="2">单价</font>
 												</div>
 											</td>
-											<td width="100">
+											<td width="150">
 												<div align="CENTER">
 													<font color="#000000" size="2">数量</font>
 												</div>
 											</td>
 											<td width="116">
 												<div align="CENTER">
-													<font color="#000000" size="2">金额</font>
+													<font color="#000000" size="2">总计</font>
 												</div>
 											</td>
+											<td width="30"></td>
 										</tr>
 										<c:forEach var="carditem" items="${sessionScope.card}">
 											<tr bgcolor="#ffffff">
-												<td width="50" align="center" height="22"><font
+												<td width="50"  style="vertical-align: middle;" align="center" height="22"><font
 													color="#000000" size="2">${carditem.value.dish.diid}</font></td>
 												<td vAlign=top width=90 height=90 align="center"><IMG
 													height=80 alt=点击图片查看内容
 													src="images/${carditem.value.dish.diimage}" width=80
 													border=0></td>
-												<td align="center" height="22"><font color="#000000" size="2">${carditem.value.dish.diname}</font>
-													<input type="hidden" name="prodid" value="500047">
-												</td>
-												<td width="104" align="center" height="22"><font
+												<td align="center" style="vertical-align: middle;" height="22"><font color="#000000"
+													size="2">${carditem.value.dish.diname}</font> <input
+													type="hidden" name="prodid" value="500047"></td>
+												<td width="104" style="vertical-align: middle;" align="center" height="22"><font
 													color="#000000" size="2">${carditem.value.dish.diprice}</font></td>
-												<td width="100" class="hh" align="center" height="22"><font
-													 size="2">${carditem.value.quantity}</font></td>
-												<td width="116" class="bb" align="center" height="22">
+												<td width="150" style="vertical-align: middle;" class="hh" align="center" height="22">
+													<span class="goods_cut"
+													onclick="goods_cut(${carditem.value.dish.diid})"></span> <input
+													type="text"
+													name="goods_number[${carditem.value.dish.diid}]"
+													id="number${carditem.value.dish.diid}"
+													readonly="readonly"
+													value="${carditem.value.quantity}" size="4" class="number"
+													onblur="if(isNaN(this.value)){alert('请输入数字');return false}else{document.getElementById('updatecart').click();}" />
+													<span class="goods_add"
+													onclick="goods_add(${carditem.value.dish.diid})"></span>
+												</td>
+												<td width="116" style="vertical-align: middle;" class="bb" align="center" height="22">
 													<font color="#000000" size="2">${carditem.value.dish.diprice*carditem.value.quantity}</font>
 												</td>
+												<td width="30"><a
+													href="viewCard?actiontype=delete&diid=${carditem.value.dish.diid }">
+														<img alt="delete" src="images/rubbish.png">
+												</a></td>
 											</tr>
 										</c:forEach>
 										<tr bgcolor="#ffffff">
@@ -289,11 +309,12 @@ solid
 												color="#000000" size="2"><strong>-</strong></font></td>
 											<td width="116" class="bb" align="center" height="22"><font
 												color="#000000" size="2"><strong>${sessionScope.sum }</strong></font></td>
+											<td align="center" colspan="3"></td>
 										</tr>
-									</table> 
+									</table>
 									<table width="300" border="0" cellspacing="1" cellpadding="4"
-										align="CENTER" >
-										<tr >
+										align="CENTER">
+										<tr>
 											<td height="10" align="center"><a
 												href="viewCard?actiontype=clearCard"><font
 													color="#000000" size="2">清空购物车</font> </a></td>
@@ -309,7 +330,8 @@ solid
 								</td>
 							</tr>
 						</table>
-					</td><td width="15%"></td>
+					</td>
+					<td width="15%"></td>
 				</tr>
 			</table>
 			<br>
@@ -320,41 +342,41 @@ solid
 			<div class="footer-wrapper  ">
 				<div class="mk-padding-wrapper">
 					<h1></h1>
-					<table width="100%" cellSpacing=0 cellPadding=0 align=center
-						border=0>
-						<tr>
-							<th width="15%"></th>
-							<th width="30%"><div class="widgettitle" align="center">关于我们</div></th>
-							<th width="20%"><div class="widgettitle" align="center">我们的团队</div></th>
-							<th width="20%"><div class="widgettitle" align="center">帮助与其他</div></th>
-							<th width="15%"></th>
-						</tr>
-						<tr>
-							<td rowspan="5"></td>
-							<td rowspan="5">11111</td>
-							<td>陈佳</td>
-							<td>常见问题</td>
-							<td rowspan="5"></td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>在线客服</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>我要加盟</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>市场合作</td>
-						</tr>
-						<tr>
-							<td>陈佳</td>
-							<td>捐赠</td>
-						</tr>
-					</table>
+				<table width="100%" cellSpacing=0 cellPadding=0 align=center
+							border=0>
+							<tr>
+								<th width="15%"></th>
+								<th width="30%"><div class="widgettitle" align="center">关于我们</div></th>
+								<th width="20%"><div class="widgettitle" align="center">我们的团队</div></th>
+								<th width="20%"><div class="widgettitle" align="center">帮助与其他</div></th>
+								<th width="15%"></th>
+							</tr>
+							<tr>
+								<td rowspan="5"></td>
+								<td rowspan="5">本系统为广大用户提供网上订餐的功能，使得广大用户可以足不出户就能快速便捷的了解到菜品详情，并且能够在网上下单点菜！</td>
+								<td>陈佳</td>
+								<td>常见问题</td>
+								<td rowspan="5"></td>
+							</tr>
+							<tr>
+								<td>田媛</td>
+								<td>在线客服</td>
+							</tr>
+							<tr>
+								<td>吕文娇</td>
+								<td>我要加盟</td>
+							</tr>
+							<tr>
+								<td>刘晓宇</td>
+								<td>市场合作</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>捐赠</td>
+							</tr>
+						</table>
+					</div>
 				</div>
-			</div>
 			<div class="clearboth"></div>
 			<div id="sub-footer" align="center">
 				<div class="item-holder">

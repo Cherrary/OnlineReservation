@@ -25,16 +25,16 @@ public class UserDaoImpl  extends baseDao implements IUserDao{
 
 	@Override
 	public int InsertUser(User user) {
-		String sqlin=String.format("insert into User values(?,?,?)");
-		Object []params = {user.getUserid(),user.getUsername(),user.getUserpassword()};
+		String sqlin=String.format("insert into User values(?,?,?,?)");
+		Object []params = {user.getUserid(),user.getUsername(),user.getUserpassword(),user.getUserphone()};
 		return this.modifyObj(sqlin, params);
 		
 	}
 
 	@Override
 	public int UpdateUser(User user) {
-		String sqlup=String.format("update User set Userpassword=?  where Userid=?");
-		Object[] params={user.getUserpassword(),user.getUserid()};
+		String sqlup=String.format("update User set Userpassword=?,Userphone=?, Username=?  where Userid=?");
+		Object[] params={user.getUserpassword(),user.getUserphone(),user.getUsername(),user.getUserid()};
 		return this.UpdateObj(sqlup, params);
 	}
 

@@ -1,0 +1,942 @@
+<%@ page language="java" import="java.util.*,dao.*,bean.*,biz.*,utils.*"
+	pageEncoding="GBK"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="./css/styles.css" type="text/css" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <![endif]-->
+
+<title>OnlineReservation</title>
+</head>
+<body>
+<div id="viewerContainer" tabindex="0">
+	<div id="viewer" class="pdfViewer">
+		<div class="page" data-page-number="1" data-loaded="true"
+			style="width: 766px; height: 1083px;">
+			<div class="canvasWrapper" style="width: 766px; height: 1083px;">
+				<canvas id="page1" width="766" height="1084"
+					style="width: 766px; height: 1084px;"></canvas>
+			</div>
+			<div class="textLayer" style="width: 766px; height: 1083px;">
+				<div
+					style="left: 176.071px; top: 153.756px; font-size: 17.9827px; font-family: sans-serif; transform: scaleX(1.00093);">分布式数据流处理的资源弹性：调查和未来发展方向</div>
+				<div
+					style="left: 230.482px; top: 194.184px; font-size: 9.02992px; font-family: sans-serif; transform: scaleX(0.982205);">a,∗</div>
+				<div
+					style="left: 245.45444164567587px; top: 197.37262646935343px; font-size: 12.888866498740553px; font-family: sans-serif;">，</div>
+				<div
+					style="left: 258.343px; top: 197.373px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.998689);">Alexandre
+					da Silva Veith</div>
+				<div
+					style="left: 412.7267170445004px; top: 196.6792228169606px; font-size: 9.02992443324937px; font-family: monospace;">a</div>
+				<div
+					style="left: 417.2030898404701px; top: 197.37262646935343px; font-size: 12.888866498740553px; font-family: sans-serif;">，</div>
+				<div
+					style="left: 430.092px; top: 197.373px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.998975);">Rajkumar
+					Buyya</div>
+				<div
+					style="left: 520.16px; top: 196.679px; font-size: 9.02992px; font-family: monospace; transform: scaleX(0.746062);">b,</div>
+				<div
+					style="left: 529.1124097397145px; top: 194.18364799800594px; font-size: 9.02992443324937px; font-family: sans-serif;">∗</div>
+				<div
+					style="left: 322.015852225021px; top: 222.29307136859782px; font-size: 7.717884130982368px; font-family: sans-serif;">a</div>
+				<div
+					style="left: 325.875px; top: 224.153px; font-size: 10.8199px; font-family: monospace; transform: scaleX(0.85711);">Inria</div>
+				<div
+					style="left: 351.6525272879933px; top: 224.15292750211233px; font-size: 10.819926177745621px; font-family: sans-serif;">，</div>
+				<div
+					style="left: 361.917px; top: 224.153px; font-size: 10.8199px; font-family: monospace; transform: scaleX(0.86183);">LIP</div>
+				<div
+					style="left: 377.353px; top: 224.153px; font-size: 10.8199px; font-family: sans-serif; transform: scaleX(0.856596);">，法国里昂</div>
+				<div
+					style="left: 428.857px; top: 224.153px; font-size: 10.8199px; font-family: monospace; transform: scaleX(0.854829);">ENS</div>
+				<div
+					style="left: 334.82753988245173px; top: 235.0275801847188px; font-size: 7.717884130982368px; font-family: sans-serif;">b</div>
+				<div
+					style="left: 338.686px; top: 236.887px; font-size: 10.8199px; font-family: sans-serif; transform: scaleX(0.857395);">澳大利亚墨尔本大学</div>
+				<div
+					style="left: 82.9673px; top: 308.201px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">摘要</div>
+				<div
+					style="left: 82.9673px; top: 333.13px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01224);">在诸如智能城市，大型基础设施运营监控和物联网等几个新兴应用场景下，连续数据流必须在非常短的时</div>
+				<div
+					style="left: 82.9673px; top: 350.187px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999488);">间内处理。</div>
+				<div
+					style="left: 155.773px; top: 350.187px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998785);">包括多个软件引擎在内的几种解决方案已经被开发出来，用于以可扩展和高效的方式处理无界</div>
+				<div
+					style="left: 82.9673px; top: 367.089px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00194);">数据流。</div>
+				<div
+					style="left: 144.273px; top: 367.089px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00231);">本文调查了流处理引擎的最新技术水平以及在流处理中利用云计算的资源弹性特征的机制。</div>
+				<div
+					style="left: 670.5040470193114px; top: 367.0888985096558px; font-size: 12.888866498740553px; font-family: sans-serif;">资</div>
+				<div
+					style="left: 82.9673px; top: 384.068px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00652);">源弹性允许应用程序或服务根据波动的需求向外扩展</div>
+				<div
+					style="left: 381.5979177162049px; top: 384.06824359781706px; font-size: 12.888866498740553px; font-family: monospace;">/</div>
+				<div
+					style="left: 388.081px; top: 384.068px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00603);">扩展。</div>
+				<div
+					style="left: 436.729px; top: 384.068px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00638);">虽然这些特性已经在企业应用中得到了广泛</div>
+				<div
+					style="left: 82.9673px; top: 401.048px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01289);">的研究，但流处理对实现弹性系统提出了挑战，这些弹性系统可以根据当前负载做出有效的资源管理决策。</div>
+				<div
+					style="left: 82.9673px; top: 418.027px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998974);">本文研究了其中一些挑战，并讨论了文献中提出</div>
+				<div
+					style="left: 353.196px; top: 418.027px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998288);">的解决方案</div>
+				<div
+					style="left: 417.51180520570944px; top: 418.0269337741395px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 82.9673px; top: 443.85px; font-size: 13.5859px; font-family: sans-serif; transform: scaleX(0.949107);">关键词：</div>
+				<div
+					style="left: 82.9673px; top: 461.787px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999188);">大数据，流处理，资源弹性，云计算</div>
+				<div
+					style="left: 82.9673px; top: 505.974px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.889889);">1.</div>
+				<div
+					style="left: 98.9433px; top: 506.886px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">介绍</div>
+				<div
+					style="left: 95.7789px; top: 544.24px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00474);">传感器和互联网连接设备日益增加的可用性导致</div>
+				<div
+					style="left: 82.9673px; top: 561.528px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.0041);">了数据量，数据种类和速度的迅速增长，并需要对</div>
+				<div
+					style="left: 82.9673px; top: 578.816px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01578);">某种类型的数据进行分析。</div>
+				<div
+					style="left: 249.931px; top: 578.816px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">随着社会变得越来越</div>
+				<div
+					style="left: 82.9673px; top: 596.181px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.0041);">相互关联，组织正在生成大量的数据，这些数据是</div>
+				<div
+					style="left: 82.9673px; top: 613.469px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.02466);">由仪器化的业务流程，用户活动监控</div>
+				<div
+					style="left: 294.1542905121746px; top: 613.4694862510497px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 300.6373131821998px; top: 612.55840450042px; font-size: 12.888866498740553px; font-family: sans-serif;">1</div>
+				<div
+					style="left: 307.043px; top: 612.558px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.937985);">,
+				</div>
+				<div
+					style="left: 315.2241141897565px; top: 612.55840450042px; font-size: 12.888866498740553px; font-family: sans-serif;">2</div>
+				<div
+					style="left: 321.70713685978166px; top: 613.4694862510497px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 328.422px; top: 613.469px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.02466);">，网站</div>
+				<div
+					style="left: 82.9673px; top: 630.758px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00395);">跟踪，传感器，财务，会计，大规模科学实验等等。</div>
+				<div
+					style="left: 82.9673px; top: 648.046px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.0041);">这种数据洪水通常被称为大数据，因为它对现有基</div>
+				<div
+					style="left: 82.9673px; top: 665.411px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.05462);">础设施构成的挑战，例如数据传输，存储和处理</div>
+				<div
+					style="left: 82.96725440806046px; top: 682.6989069059615px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 89.45027707808565px; top: 681.7878251553318px; font-size: 12.888866498740553px; font-family: sans-serif;">3</div>
+				<div
+					style="left: 95.9333px; top: 681.788px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00238);">].</div>
+				<div
+					style="left: 95.7789px; top: 701.145px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00474);">当大数据在生成时被快速分析时，大数据是最有</div>
+				<div
+					style="left: 82.9673px; top: 718.433px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">价值的。</div>
+				<div
+					style="left: 145.122px; top: 718.433px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01599);">在几个新兴应用场景下，如智能城市，</div>
+				<div
+					style="left: 82.9673px; top: 735.798px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00402);">大型基础设施运营监</div>
+				<div
+					style="left: 199.533px; top: 735.798px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00319);">控和物联网（</div>
+				<div
+					style="left: 277.175px; top: 735.798px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.994698);">IoT</div>
+				<div
+					style="left: 296.4696557514693px; top: 735.7979497271201px; font-size: 12.888866498740553px; font-family: sans-serif;">）</div>
+				<div
+					style="left: 309.4357010915197px; top: 735.7979497271201px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 315.8415449202351px; top: 734.8868679764904px; font-size: 12.888866498740553px; font-family: sans-serif;">4</div>
+				<div
+					style="left: 322.3245675902603px; top: 735.7979497271201px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 328.808px; top: 735.798px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">，连续</div>
+				<div
+					style="left: 82.9673px; top: 753.086px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01599);">的数据流必须在非常短的延迟下处理。</div>
+				<div
+					style="left: 315.533px; top: 753.086px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">在几个领</div>
+				<div
+					style="left: 82.9673px; top: 770.374px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999052);">域中，需要处理和分析数</div>
+				<div
+					style="left: 224.53897565071367px; top: 770.3740706339212px; font-size: 12.888866498740553px; font-family: sans-serif;">据</div>
+				<div
+					style="left: 97.09098236775819px; top: 814.9041517107474px; font-size: 7.717884130982368px; font-family: sans-serif;">∗</div>
+				<div
+					style="left: 100.796px; top: 817.676px; font-size: 10.2648px; font-family: sans-serif; transform: scaleX(0.857794);">通讯作者：</div>
+				<div
+					style="left: 157.471px; top: 817.676px; font-size: 10.2648px; font-family: monospace; transform: scaleX(0.857217);">assuncao@acm.org</div>
+				<div
+					style="left: 239.82038623005877px; top: 817.6762589210748px; font-size: 10.264785894206549px; font-family: sans-serif;">，</div>
+				<div
+					style="left: 252.632px; top: 816.951px; font-size: 10.2648px; font-family: sans-serif; transform: scaleX(0.725068);">rbuyya@unimelb.edu.au</div>
+				<div
+					style="left: 398.191px; top: 506.886px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998923);">流来检测模式，识别故障并获得见解。</div>
+				<div
+					style="left: 411.029px; top: 524.791px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">已经提出了几种流处理框架和工具来以可扩展和</div>
+				<div
+					style="left: 398.191px; top: 541.925px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">高效的方式执行分析任务。</div>
+				<div
+					style="left: 565.386px; top: 541.925px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">许多工具采用数据流</div>
+				<div
+					style="left: 398.191px; top: 559.058px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">方法，其中传入数据导致数据流通过放置在执行类</div>
+				<div
+					style="left: 398.191px; top: 576.269px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">似代数操作或用户定义函数的分布式主机上的运算</div>
+				<div
+					style="left: 398.191px; top: 593.403px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">符图重定向。</div>
+				<div
+					style="left: 486.664px; top: 593.403px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">另一方面，一些框架通过在小时间</div>
+				<div
+					style="left: 398.191px; top: 610.614px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">窗口期间临时存储到达的数据来分离输入数据流，</div>
+				<div
+					style="left: 398.191px; top: 627.748px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">然后通过触发对先前存储的数据的分布式计算来执</div>
+				<div
+					style="left: 398.191px; top: 644.958px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">行微批处理。</div>
+				<div
+					style="left: 486.664px; top: 644.958px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">第二种方法旨在通过更有效地处理</div>
+				<div
+					style="left: 398.191px; top: 662.092px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">零散的任务和故障来提高分布式流处理工具的可扩</div>
+				<div
+					style="left: 398.191px; top: 679.303px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999689);">展性和容错性</div>
+				<div
+					style="left: 475.3959361880772px; top: 679.3030378883292px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 411.029px; top: 697.749px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">为了提高可伸缩性，许多流处理框架已经部署在</div>
+				<div
+					style="left: 398.191px; top: 714.882px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">云端</div>
+				<div
+					style="left: 424.4579009235936px; top: 714.882483732158px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 430.9409235936188px; top: 713.9714019815283px; font-size: 12.888866498740553px; font-family: sans-serif;">5</div>
+				<div
+					style="left: 437.578px; top: 714.882px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">旨在从资源弹性等特征中受益。</div>
+				<div
+					style="left: 630.988px; top: 714.882px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">当正确利</div>
+				<div
+					style="left: 398.191px; top: 732.093px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">用时，弹性指的是云允许服务分配额外资源或按需</div>
+				<div
+					style="left: 398.191px; top: 749.227px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.05263);">发布闲置容量以匹配应用程序工作负载的能力。</div>
+				<div
+					style="left: 398.191px; top: 766.438px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998974);">虽然已经努力使流处理更有弹性</div>
+				<div
+					style="left: 578.352510495382px; top: 766.4379497271201px; font-size: 12.888866498740553px; font-family: sans-serif;">，</div>
+				<div
+					style="left: 606.06px; top: 793.141px; font-size: 10.8199px; font-family: monospace; transform: scaleX(0.86183);">2017</div>
+				<div
+					style="left: 626.6664651553316px; top: 793.1410719185691px; font-size: 10.819926177745621px; font-family: sans-serif;">年</div>
+				<div
+					style="left: 637.008429890848px; top: 793.1410719185691px; font-size: 10.819926177745621px; font-family: monospace;">9</div>
+				<div
+					style="left: 642.1022334172964px; top: 793.1410719185691px; font-size: 10.819926177745621px; font-family: sans-serif;">月</div>
+				<div
+					style="left: 652.4441981528128px; top: 793.1410719185691px; font-size: 10.819926177745621px; font-family: monospace;">6</div>
+				<div
+					style="left: 657.5380016792611px; top: 793.1410719185691px; font-size: 10.819926177745621px; font-family: sans-serif;">日</div>
+				<div
+					style="left: 22.5236px; top: 778.169px; font-size: 25.7006px; font-family: monospace; transform: rotate(-90deg) scaleX(1.00082);">arXiv</div>
+				<div
+					style="left: 22.5236px; top: 713.879px; font-size: 25.7006px; font-family: sans-serif; transform: rotate(-90deg);">：</div>
+				<div
+					style="left: 22.5236px; top: 688.178px; font-size: 25.7006px; font-family: monospace; transform: rotate(-90deg) scaleX(1.00082);">1709.01363v1
+					[cs.DC] 2017</div>
+				<div
+					style="left: 57.0997px; top: 778.169px; font-size: 25.7006px; font-family: sans-serif; transform: rotate(-90deg);">年</div>
+				<div
+					style="left: 57.0997px; top: 752.468px; font-size: 25.7006px; font-family: monospace; transform: rotate(-90deg);">9</div>
+				<div
+					style="left: 57.0997px; top: 739.579px; font-size: 25.7006px; font-family: sans-serif; transform: rotate(-90deg);">月</div>
+				<div
+					style="left: 57.0997px; top: 713.879px; font-size: 25.7006px; font-family: monospace; transform: rotate(-90deg);">5</div>
+				<div
+					style="left: 57.0997px; top: 700.99px; font-size: 25.7006px; font-family: sans-serif; transform: rotate(-90deg);">日</div>
+				<div class="endOfContent" style=""></div>
+			</div>
+			<div class="annotationLayer">
+				<section data-annotation-id="31R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -231.42px -475.01px 0px; left: 231.42px; top: 475.01px; width: 9.5px; height: 13.46px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C84%2C673%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="52R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -242.77px -475.01px 0px; left: 242.77px; top: 475.01px; width: 9.5px; height: 13.46px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C264%2C622%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="53R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -67.25px -528.83px 0px; left: 67.25px; top: 528.83px; width: 9.5px; height: 13.46px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C84%2C568%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="59R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -120.15px -633.46px 0px; left: 120.15px; top: 633.46px; width: 76.5px; height: 11.32px;">
+					<a title="mailto:assuncao@acm.org" href="mailto:assuncao@acm.org"
+						target="_top" rel="noopener noreferrer nofollow"></a>
+				</section>
+				<section data-annotation-id="60R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -194.15px -633.46px 0px; left: 194.15px; top: 633.46px; width: 83.4px; height: 11.32px;">
+					<a title="mailto:rbuyya@unimelb.edu.au"
+						href="mailto:rbuyya@unimelb.edu.au" target="_top"
+						rel="noopener noreferrer nofollow"></a>
+				</section>
+			</div>
+		</div>
+		<div class="page" data-page-number="2" data-loaded="true"
+			style="width: 766px; height: 1083px;">
+			<div class="canvasWrapper" style="width: 766px; height: 1083px;">
+				<canvas id="page2" width="766" height="1084"
+					style="width: 766px; height: 1084px;"></canvas>
+			</div>
+			<div class="textLayer" style="width: 766px; height: 1083px;">
+				<div
+					style="left: 376.42693534844665px; top: 951.6307806549119px; font-size: 12.888866498740553px; font-family: sans-serif;">2</div>
+				<div
+					style="left: 82.9673px; top: 145.02px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01514);">许多问题仍未解决。</div>
+				<div
+					style="left: 210.647px; top: 145.02px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01817);">在可用资源上放置流处理任</div>
+				<div
+					style="left: 82.9673px; top: 162.333px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01595);">务，识别瓶颈和应用程序适应方面存在挑战。</div>
+				<div
+					style="left: 354.816859781696px; top: 162.33343251469373px; font-size: 12.888866498740553px; font-family: sans-serif;">当</div>
+				<div
+					style="left: 82.9673px; top: 179.621px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.0041);">服务是包含多种执行模型的大型基础架构的一部分</div>
+				<div
+					style="left: 82.9673px; top: 196.91px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">时（例如，</div>
+				<div
+					style="left: 147.823px; top: 196.91px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.998689);">lambda</div>
+				<div
+					style="left: 186.413px; top: 196.91px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00625);">体系结构，工作流程或用于高级</div>
+				<div
+					style="left: 82.9673px; top: 214.198px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.02466);">编程抽象的资源管理绑</div>
+				<div
+					style="left: 214.96879932829555px; top: 214.19761387489515px; font-size: 12.888866498740553px; font-family: sans-serif;">定</div>
+				<div
+					style="left: 228.1663811922754px; top: 214.19761387489515px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 234.64940386230057px; top: 213.28653212426545px; font-size: 12.888866498740553px; font-family: sans-serif;">6</div>
+				<div
+					style="left: 241.055px; top: 213.287px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.937985);">,
+				</div>
+				<div
+					style="left: 249.23620486985723px; top: 213.28653212426545px; font-size: 12.888866498740553px; font-family: sans-serif;">7</div>
+				<div
+					style="left: 255.71922753988244px; top: 214.19761387489515px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 262.434px; top: 214.198px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.02466);">）或包含云计算资</div>
+				<div
+					style="left: 82.9673px; top: 231.563px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998842);">源和边缘计算资源的混合环境</div>
+				<div
+					style="left: 250.23952980688495px; top: 231.5628531696054px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 256.6453736356003px; top: 230.6517714189757px; font-size: 12.888866498740553px; font-family: sans-serif;">8</div>
+				<div
+					style="left: 263.128px; top: 230.652px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00238);">].</div>
+				<div
+					style="left: 95.7789px; top: 248.851px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00474);">本文调查了流处理解决方案，在云计算和边缘环</div>
+				<div
+					style="left: 82.9673px; top: 266.139px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.0041);">境中部署此类解决方案的方法，以及利用云资源弹</div>
+				<div
+					style="left: 82.9673px; top: 283.427px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.0041);">性来调整资源分配以适应流处理服务需求的现有工</div>
+				<div
+					style="left: 82.9673px; top: 300.792px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">作。</div>
+				<div
+					style="left: 95.7789px; top: 318.158px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999188);">本文的其余部分组织如下。</div>
+				<div
+					style="left: 258.575px; top: 318.158px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">部分</div>
+				<div
+					style="left: 292.765px; top: 317.246px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.843823);">2
+				</div>
+				<div
+					style="left: 303.339px; top: 318.158px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999488);">提供有关大</div>
+				<div
+					style="left: 82.9673px; top: 335.446px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.05462);">数据生态系统和在线数据处理架构的背景信息。</div>
+				<div
+					style="left: 82.9673px; top: 352.734px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">部分</div>
+				<div
+					style="left: 114.148px; top: 351.823px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.857405);">3
+				</div>
+				<div
+					style="left: 123.255px; top: 352.734px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999109);">描述了用于数据流处理的现有引擎和其他软</div>
+				<div
+					style="left: 82.9673px; top: 370.099px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998974);">件解决方案，而</div>
+				<div
+					style="left: 173.061px; top: 370.099px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.999189);">Section
+				</div>
+				<div
+					style="left: 227.70330814441647px; top: 369.18779157010925px; font-size: 12.888866498740553px; font-family: sans-serif;">4</div>
+				<div
+					style="left: 238.971px; top: 370.099px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999488);">讨论用于流处理的托管</div>
+				<div
+					style="left: 82.9673px; top: 387.387px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999689);">云解决方案。</div>
+				<div
+					style="left: 165.9602350965575px; top: 387.3869337741395px; font-size: 12.888866498740553px; font-family: sans-serif;">在</div>
+				<div
+					style="left: 178.849px; top: 387.387px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.998975);">Section</div>
+				<div
+					style="left: 223.84436607892528px; top: 387.3869337741395px; font-size: 12.888866498740553px; font-family: sans-serif;">中</div>
+				<div
+					style="left: 242.599px; top: 386.476px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.843823);">5
+				</div>
+				<div
+					style="left: 251.86px; top: 387.387px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999355);">我们详细说明现有工</div>
+				<div
+					style="left: 82.9673px; top: 404.675px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01595);">作如何试图解决数据流处理的资源弹性问题。</div>
+				<div
+					style="left: 354.816859781696px; top: 404.67499422753997px; font-size: 12.888866498740553px; font-family: sans-serif;">部</div>
+				<div
+					style="left: 82.96725440806046px; top: 421.96305468094044px; font-size: 12.888866498740553px; font-family: sans-serif;">分</div>
+				<div
+					style="left: 101.25863979848866px; top: 421.0519729303107px; font-size: 12.888866498740553px; font-family: sans-serif;">6</div>
+				<div
+					style="left: 110.366px; top: 421.963px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999188);">讨论旨在利用多种类型的基础设施（如云计算</div>
+				<div
+					style="left: 82.9673px; top: 439.328px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">和边缘计</div>
+				<div
+					style="left: 134.78px; top: 439.328px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00402);">算）来改进流处理应用程序性能的解决方</div>
+				<div
+					style="left: 82.9673px; top: 456.616px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">案。</div>
+				<div
+					style="left: 117.08px; top: 456.616px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">部分</div>
+				<div
+					style="left: 151.219px; top: 455.705px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.857405);">7
+				</div>
+				<div
+					style="left: 161.87px; top: 456.616px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999188);">提出有关该主题的未来方向，最后部</div>
+				<div
+					style="left: 82.96725440806046px; top: 473.9044148824519px; font-size: 12.888866498740553px; font-family: sans-serif;">分</div>
+				<div
+					style="left: 102.26196473551637px; top: 472.9933331318221px; font-size: 12.888866498740553px; font-family: sans-serif;">8</div>
+				<div
+					style="left: 111.446px; top: 473.904px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999689);">总结该文件。</div>
+				<div
+					style="left: 398.191px; top: 144.109px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.969812);">IoT
+					[</div>
+				<div
+					style="left: 424.844px; top: 144.109px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.858319);">11</div>
+				<div
+					style="left: 437.7326616288833px; top: 145.0196457808565px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 444.1385054575986px; top: 145.0196457808565px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 464.514px; top: 145.02px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998923);">图中描绘了流处理架构中常见的组件概</div>
+				<div
+					style="left: 398.19136859781696px; top: 162.33343251469373px; font-size: 12.888866498740553px; font-family: sans-serif;">述</div>
+				<div
+					style="left: 420.8304953820319px; top: 161.42235076406402px; font-size: 12.888866498740553px; font-family: sans-serif;">1</div>
+				<div
+					style="left: 427.3135180520571px; top: 162.33343251469373px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 449.927px; top: 162.333px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">虽然实际的系统可能并不包含所有这些组</div>
+				<div
+					style="left: 398.191px; top: 179.621px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">件，但其目标是描述流处理体系结构如何看起来像</div>
+				<div
+					style="left: 398.191px; top: 196.91px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999088);">和定位稍后讨论的流处理解决方案</div>
+				<div
+					style="left: 591.2413769941226px; top: 196.90955342149468px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 411.029px; top: 214.198px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998974);">数据源如图所示</div>
+				<div
+					style="left: 506.731px; top: 213.287px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.857405);">1
+				</div>
+				<div
+					style="left: 515.992px; top: 214.198px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999304);">这需要及时处理和分析，包括</div>
+				<div
+					style="left: 398.191px; top: 231.408px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">网站分析，基础设施运营监控，在线广告，社交媒</div>
+				<div
+					style="left: 398.191px; top: 248.542px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">体和物联网。</div>
+				<div
+					style="left: 486.664px; top: 248.542px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">大多数数据收集是通过使用多个应</div>
+				<div
+					style="left: 398.191px; top: 265.753px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998974);">用程序协议（如</div>
+				<div
+					style="left: 488.285px; top: 265.753px; font-size: 12.8889px; font-family: monospace; transform: scaleX(1.00069);">HTTP</div>
+				<div
+					style="left: 513.985px; top: 265.753px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">）的</div>
+				<div
+					style="left: 539.763px; top: 265.753px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.940649);">TCP
+					/ IP</div>
+				<div
+					style="left: 588.231px; top: 265.753px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999689);">连接执行的。</div>
+				<div
+					style="left: 670.4268681780017px; top: 265.7530798698574px; font-size: 12.888866498740553px; font-family: sans-serif;">诸</div>
+				<div
+					style="left: 398.19136859781696px; top: 282.8867826406382px; font-size: 12.888866498740553px; font-family: sans-serif;">如</div>
+				<div
+					style="left: 411.106px; top: 282.887px; font-size: 12.8889px; font-family: monospace; transform: scaleX(1.01024);">JavaScript
+					Object Notation</div>
+				<div
+					style="left: 580.2819815281276px; top: 282.8867826406382px; font-size: 12.888866498740553px; font-family: sans-serif;">（</div>
+				<div
+					style="left: 593.171px; top: 282.887px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.997688);">JSON</div>
+				<div
+					style="left: 618.871px; top: 282.887px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">）之</div>
+				<div
+					style="left: 644.649px; top: 282.887px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998688);">类的解</div>
+				<div
+					style="left: 398.191px; top: 300.098px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">决方案被用作数据交换格式。</div>
+				<div
+					style="left: 578.507px; top: 300.098px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">对于更多结构化数</div>
+				<div
+					style="left: 398.191px; top: 317.231px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998974);">据，有线协议如</div>
+				<div
+					style="left: 488.285px; top: 317.231px; font-size: 12.8889px; font-family: monospace; transform: scaleX(1.01964);">Apache
+					Thrift [</div>
+				<div
+					style="left: 586.765px; top: 316.32px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">12</div>
+				<div
+					style="left: 599.6538706968934px; top: 317.23136702350973px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 606.06px; top: 317.231px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999689);">和协议缓冲区</div>
+				<div
+					style="left: 398.19136859781696px; top: 334.44224863560044px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 404.674px; top: 333.531px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">13</div>
+				<div
+					style="left: 417.51180520570944px; top: 334.44224863560044px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 424.226px; top: 334.442px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">可以使用。</div>
+				<div
+					style="left: 499.553px; top: 334.442px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01777);">其他消息传递协议已经提出用于</div>
+				<div
+					style="left: 398.191px; top: 351.576px; font-size: 12.8889px; font-family: monospace; transform: scaleX(1.00069);">IoT</div>
+				<div
+					style="left: 417.512px; top: 351.576px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999831);">，其中一些基于</div>
+				<div
+					style="left: 507.657px; top: 351.576px; font-size: 12.8889px; font-family: monospace; transform: scaleX(1.02337);">HTTP
+					[</div>
+				<div
+					style="left: 547.1722586062132px; top: 350.6648696557515px; font-size: 12.888866498740553px; font-family: sans-serif;">4</div>
+				<div
+					style="left: 553.6552812762385px; top: 351.57595140638125px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 560.0611251049538px; top: 351.57595140638125px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 580.359px; top: 351.576px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999188);">大多数数据收集活</div>
+				<div
+					style="left: 398.191px; top: 368.787px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">动都是在网络边缘执行的，并且在传递数据进行处</div>
+				<div
+					style="left: 398.191px; top: 385.921px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998974);">理和分析之前，通常会执行某种级别的数据聚合</div>
+				<div
+					style="left: 668.4202183039462px; top: 385.92053578925277px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 411.029px; top: 403.826px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">在线数据处理体系结构通常包括多层收集和处理，</div>
+				<div
+					style="left: 398.191px; top: 420.96px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">这些层之间的连接是在临时的基础上进行的。</div>
+				<div
+					style="left: 670.3496893366918px; top: 420.9597297439128px; font-size: 12.888866498740553px; font-family: sans-serif;">为</div>
+				<div
+					style="left: 398.191px; top: 438.093px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">了允许更多的模块化系统，并使每一层以不同的步</div>
+				<div
+					style="left: 398.191px; top: 455.304px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">伐增长并因此适应变化，连接有时由数据流系统完</div>
+				<div
+					style="left: 398.191px; top: 472.438px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">成。</div>
+				<div
+					style="left: 434.182px; top: 472.438px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">这些系统也被称为“运动数据”，例如使</div>
+				<div
+					style="left: 670.3496893366918px; top: 472.43801689756515px; font-size: 12.888866498740553px; font-family: sans-serif;">处</div>
+				<div
+					style="left: 398.191px; top: 489.649px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998888);">理层能够扩展到多个数据中心和集合管理系统</div>
+				<div
+					style="left: 655.5313518052056px; top: 489.64889850965585px; font-size: 12.888866498740553px; font-family: sans-serif;">，</div>
+				<div
+					style="left: 398.19136859781696px; top: 505.5734660999161px; font-size: 12.888866498740553px; font-family: sans-serif;">在</div>
+				<div
+					style="left: 411.106px; top: 505.573px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998688);">不影响处理的情况下更改。</div>
+				<div
+					style="left: 571.8694878253568px; top: 505.5734660999161px; font-size: 12.888866498740553px; font-family: sans-serif;">该</div>
+				<div
+					style="left: 82.9673px; top: 529.437px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.889889);">2.</div>
+				<div
+					style="left: 98.9433px; top: 530.348px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00212);">背景和体系结构</div>
+				<div
+					style="left: 95.7789px; top: 559.676px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">本节介绍有关大数据流处理系统的背景。</div>
+				<div
+					style="left: 341.696px; top: 559.676px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">它首</div>
+				<div
+					style="left: 82.9673px; top: 577.041px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.0041);">先讨论分层实时体系结构是如何组织的，然后提供</div>
+				<div
+					style="left: 82.9673px; top: 594.329px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.998888);">这些系统随着时间的推移如何演变的历史总结</div>
+				<div
+					style="left: 340.3072376154492px; top: 594.3291336062133px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 82.9673px; top: 626.605px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.890121);">2.1.</div>
+				<div
+					style="left: 108.591px; top: 626.944px; font-size: 13.5859px; font-family: sans-serif; transform: scaleX(0.947684);">在线数据处理架构</div>
+				<div
+					style="left: 95.7789px; top: 648.354px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.02087);">在线体系结构</div>
+				<div
+					style="left: 175.0673383711167px; top: 646.405185356843px; font-size: 9.02992443324937px; font-family: sans-serif;">1</div>
+				<div
+					style="left: 183.094px; top: 648.354px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.02335);">数据分析通常是包含许多松散耦</div>
+				<div
+					style="left: 82.9673px; top: 665.565px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01514);">合组件的多层系统。</div>
+				<div
+					style="left: 210.647px; top: 665.565px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01817);">虽然以这种方式构建体系结</div>
+				<div
+					style="left: 82.9673px; top: 682.93px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.0041);">构的原因可能会有所不同，但主要目标包括提高可</div>
+				<div
+					style="left: 82.9673px; top: 700.219px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01547);">维护性，可伸缩性和可用性。</div>
+				<div
+					style="left: 263.051px; top: 700.219px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">在线数据处理系统</div>
+				<div
+					style="left: 82.9673px; top: 717.507px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999088);">的文献中已经描述了几种体系结构</div>
+				<div
+					style="left: 276.01726280436606px; top: 717.5065643366919px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 282.42310663308143px; top: 716.5954825860622px; font-size: 12.888866498740553px; font-family: sans-serif;">9</div>
+				<div
+					style="left: 288.8289504617968px; top: 716.5954825860622px; font-size: 12.888866498740553px; font-family: sans-serif;">,</div>
+				<div
+					style="left: 294.772px; top: 716.595px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.858319);">10</div>
+				<div
+					style="left: 307.6605877413938px; top: 717.5065643366919px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 314.06643157010916px; top: 717.5065643366919px; font-size: 12.888866498740553px; font-family: sans-serif;">和</div>
+				<div
+					style="left: 96.93662468513854px; top: 759.9466062132661px; font-size: 7.717884130982368px; font-family: sans-serif;">1</div>
+				<div
+					style="left: 101.64453400503777px; top: 762.2618508606213px; font-size: 10.264785894206549px; font-family: sans-serif;">与</div>
+				<div
+					style="left: 112.913px; top: 762.262px; font-size: 10.2648px; font-family: monospace; transform: scaleX(0.855684);">Boykin</div>
+				<div
+					style="left: 144.659px; top: 762.262px; font-size: 10.2648px; font-family: sans-serif; transform: scaleX(0.932877);">等人提出的内容类似，此后使用在线术语表示</div>
+				<div
+					style="left: 82.9673px; top: 776px; font-size: 10.2648px; font-family: sans-serif; transform: scaleX(0.857395);">“数据是在生成时处理的”</div>
+				<div
+					style="left: 206.47912678421494px; top: 775.9996846137699px; font-size: 10.264785894206549px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 398.19136859781696px; top: 521.4407556762665px; font-size: 13.585922343485104px; font-family: sans-serif;">数</div>
+				<div
+					style="left: 412.727px; top: 522.013px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.11683);">据流层包括消息代理和排队系统，如</div>
+				<div
+					style="left: 644.649px; top: 522.013px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.998975);">Apache
+				</div>
+				<div
+					style="left: 398.191px; top: 539.301px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.99949);">ActiveMQ
+					[</div>
+				<div
+					style="left: 462.584px; top: 538.39px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">14</div>
+				<div
+					style="left: 475.3959361880772px; top: 539.3006197523091px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 481.8017800167926px; top: 539.3006197523091px; font-size: 12.888866498740553px; font-family: sans-serif;">，</div>
+				<div
+					style="left: 494.691px; top: 539.301px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.999189);">RabbitMQ</div>
+				<div
+					style="left: 398.19136859781696px; top: 555.6775984550799px; font-size: 12.888866498740553px; font-family: sans-serif;">[</div>
+				<div
+					style="left: 402.513px; top: 555.678px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">15</div>
+				<div
+					style="left: 415.35079764903435px; top: 556.5886802057096px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 421.7566414777498px; top: 556.5886802057096px; font-size: 12.888866498740553px; font-family: sans-serif;">和</div>
+				<div
+					style="left: 434.646px; top: 556.589px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.986014);">Kestrel
+					[</div>
+				<div
+					style="left: 491.758px; top: 555.678px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.858319);">16</div>
+				<div
+					style="left: 504.6467170445004px; top: 556.5886802057096px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 511.053px; top: 556.589px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999488);">，基于发布</div>
+				<div
+					style="left: 581.0537699412258px; top: 556.5886802057096px; font-size: 12.888866498740553px; font-family: monospace;">-</div>
+				<div
+					style="left: 593.171px; top: 556.589px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999188);">订阅的解决方案，</div>
+				<div
+					style="left: 398.191px; top: 573.954px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">包括</div>
+				<div
+					style="left: 423.995px; top: 573.954px; font-size: 12.8889px; font-family: monospace; transform: scaleX(1.0137);">Apache
+					Kafka [</div>
+				<div
+					style="left: 515.375px; top: 573.043px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">17</div>
+				<div
+					style="left: 528.2634424853064px; top: 573.9539195004198px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 534.6692863140219px; top: 573.9539195004198px; font-size: 12.888866498740553px; font-family: sans-serif;">和</div>
+				<div
+					style="left: 547.558px; top: 573.954px; font-size: 12.8889px; font-family: monospace; transform: scaleX(1.00544);">DistributedLog
+					[</div>
+				<div
+					style="left: 651.132px; top: 573.043px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">18</div>
+				<div
+					style="left: 664.0210243492863px; top: 573.9539195004198px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 670.4268681780017px; top: 573.9539195004198px; font-size: 12.888866498740553px; font-family: sans-serif;">或</div>
+				<div
+					style="left: 398.191px; top: 591.242px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.03588);">托管服务，如</div>
+				<div
+					style="left: 478.946px; top: 591.242px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.950942);">Amazon
+					Kinesis Firehose [</div>
+				<div
+					style="left: 650.515px; top: 590.331px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">19</div>
+				<div
+					style="left: 663.3264147774978px; top: 591.2419799538203px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 670.3496893366918px; top: 591.2419799538203px; font-size: 12.888866498740553px; font-family: sans-serif;">和</div>
+				<div
+					style="left: 398.191px; top: 608.53px; font-size: 12.8889px; font-family: monospace; transform: scaleX(1.00069);">Azure</div>
+				<div
+					style="left: 430.401px; top: 608.53px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999689);">物联网集线器</div>
+				<div
+					style="left: 507.6566918555836px; top: 608.5300404072209px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 514.063px; top: 607.619px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">20</div>
+				<div
+					style="left: 526.951px; top: 607.619px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00238);">].</div>
+				<div
+					style="left: 411.029px; top: 625.818px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00668);">多年来，为处理大量数据而创建了多种模型和框</div>
+				<div
+					style="left: 398.191px; top: 643.183px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">架，其中</div>
+				<div
+					style="left: 449.773px; top: 643.183px; font-size: 12.8889px; font-family: monospace; transform: scaleX(0.998022);">MapReduce</div>
+				<div
+					style="left: 507.58px; top: 643.183px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999689);">是最受欢迎的</div>
+				<div
+					style="left: 584.8355331654072px; top: 643.1833401553317px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 591.241px; top: 642.272px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">21</div>
+				<div
+					style="left: 604.0530646515533px; top: 643.1833401553317px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 610.4589084802686px; top: 643.1833401553317px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 631.76px; top: 643.183px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00069);">虽然大多</div>
+				<div
+					style="left: 398.191px; top: 660.471px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">数框架以批处理方式处理数据，但是已经进行了大</div>
+				<div
+					style="left: 398.191px; top: 677.759px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">量尝试，以使它们适应更多交互式和动态的工作负</div>
+				<div
+					style="left: 398.19136859781696px; top: 695.0475215155333px; font-size: 12.888866498740553px; font-family: sans-serif;">载</div>
+				<div
+					style="left: 411.1059613769941px; top: 695.0475215155333px; font-size: 12.888866498740553px; font-family: monospace;">[</div>
+				<div
+					style="left: 417.512px; top: 694.136px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.858319);">22</div>
+				<div
+					style="left: 430.401px; top: 694.136px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.937985);">,
+				</div>
+				<div
+					style="left: 437.501px; top: 694.136px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.848101);">23</div>
+				<div
+					style="left: 450.38999160369434px; top: 695.0475215155333px; font-size: 12.888866498740553px; font-family: monospace;">]</div>
+				<div
+					style="left: 456.7958354324097px; top: 695.0475215155333px; font-size: 12.888866498740553px; font-family: sans-serif;">。</div>
+				<div
+					style="left: 477.325px; top: 695.048px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999276);">这些解决方案处理当今许多使用案例，</div>
+				<div
+					style="left: 398.191px; top: 712.413px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">但越来越需要以更高的速度处理收集的数据。</div>
+				<div
+					style="left: 670.3496893366918px; top: 712.4127608102435px; font-size: 12.888866498740553px; font-family: sans-serif;">数</div>
+				<div
+					style="left: 398.191px; top: 729.701px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00506);">据流处理系统通常设计为处理和执行无界数据流的</div>
+				<div
+					style="left: 398.191px; top: 746.989px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">一次处理。</div>
+				<div
+					style="left: 473.544px; top: 746.989px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.01867);">这一层是本文的重点，其中包括通常</div>
+				<div
+					style="left: 398.191px; top: 764.277px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(1.00478);">称为流管理系统和复杂事件处理系统的解决方案。</div>
+				<div
+					style="left: 398.191px; top: 781.642px; font-size: 12.8889px; font-family: sans-serif; transform: scaleX(0.999188);">接下来的部分将回顾数据流</div>
+				<div
+					style="left: 552.5747774979009px; top: 781.6421814651554px; font-size: 12.888866498740553px; font-family: sans-serif;">，</div>
+				<div class="endOfContent"></div>
+			</div>
+			<div class="annotationLayer">
+				<section data-annotation-id="63R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -225.28px -245.4px 0px; left: 225.28px; top: 245.4px; width: 12.77px; height: 13.5px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A32%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C438%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="64R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -86.45px -272.36px 0px; left: 86.45px; top: 272.36px; width: 11.6px; height: 13.45px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A35%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C299%2C365%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="65R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -174.77px -285.81px 0px; left: 174.77px; top: 285.81px; width: 9.5px; height: 13.46px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A40%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C299%2C354%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="66R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -186.29px -299.27px 0px; left: 186.29px; top: 299.27px; width: 11.76px; height: 13.45px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A42%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C538%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="67R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -76.45px -326.18px 0px; left: 76.45px; top: 326.18px; width: 9.5px; height: 13.45px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A48%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C598%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="68R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -115.29px -353.09px 0px; left: 115.29px; top: 353.09px; width: 12.76px; height: 13.45px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A50%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C736%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="69R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -77.25px -366.54px 0px; left: 77.25px; top: 366.54px; width: 11.65px; height: 13.46px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A50%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C299%2C514%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="70R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -312.3px -258.1px 0px; left: 312.3px; top: 258.1px; width: 14.5px; height: 13.34px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C243%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="73R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -310.63px -430.83px 0px; left: 310.63px; top: 430.83px; width: 14.5px; height: 13.45px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C204%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="74R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -380.04px -430.83px 0px; left: 380.04px; top: 430.83px; width: 14.5px; height: 13.45px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C194%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="75R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -398.33px -444.28px 0px; left: 398.33px; top: 444.28px; width: 14.5px; height: 13.46px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C185%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="76R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -503.85px -444.28px 0px; left: 503.85px; top: 444.28px; width: 14.5px; height: 13.46px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C166%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="77R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -503.4px -457.74px 0px; left: 503.4px; top: 457.74px; width: 14.5px; height: 13.45px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C54%2C156%2C0%5D"
+						class="internalLink"></a>
+				</section>
+				<section data-annotation-id="78R" class="linkAnnotation"
+					style="transform: matrix(1.28631, 0, 0, 1.28631, 0, 0); transform-origin: -322.3px -538.47px 0px; left: 322.3px; top: 538.47px; width: 14.5px; height: 13.45px;">
+					<a title=""
+						href="#%5B%7B%22num%22%3A51%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C303%2C704%2C0%5D"
+						class="internalLink"></a>
+				</section>
+			</div>
+		</div>
+		<div class="page" data-page-number="3"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="4"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="5"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="6"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="7"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="8"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="9"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="10"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="11"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="12"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="13"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="14"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="15"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="16"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="17"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="18"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="19"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="20"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="21"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="22"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="23"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="24"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="25"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="26"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+		<div class="page" data-page-number="27"
+			style="width: 766px; height: 1083px;">
+			<div class="loadingIcon"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

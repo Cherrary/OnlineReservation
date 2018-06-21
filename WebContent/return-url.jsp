@@ -248,9 +248,6 @@ h2 {
 								</table>
 							</dd>
 							<hr class="one_line">
-							<input type="hidden" name="pageNO" value="1">
-							<input type="hidden" name="totalpages"
-								value="${sessionScope.pageModel.totalPages}">
 							<dt></dt>
 							<dd id="btn-dd">
 								<span class="new-btn-login-sp">

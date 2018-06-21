@@ -82,6 +82,33 @@ body, .theme-main-wrapper {
 </style>
 <script type='text/javascript'
 	src='http://www.tinkeringmonkey.com/wp-includes/js/jquery/jquery.js'></script>
+	
+	<script src="System/script/sweetalert2.all.min.js"></script>
+<script src="https://unpkg.com/promise-polyfill"></script>
+<script src="System/script/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="css/sweetalert2.min.css">
+	<script language="javascript">
+
+	function checkUserInfo() {
+	 if(document.loginForm.loginName.value==""){
+   	  swal({
+   		  title: '用户名不能为空！',
+   		  width:300,
+   		  confirmButtonColor:"#caa76a"
+   	  });
+	    return false;
+	 }
+	 if(document.loginForm.loginPass.value==""){
+  	  swal({
+  		  title: '密码不能为空！',
+  		  width:300,
+  		  confirmButtonColor:"#caa76a"
+  	  });
+	    return false;
+	 }
+	}
+	
+</script>
 </head>
 
 
@@ -117,7 +144,7 @@ body, .theme-main-wrapper {
 							<li id="menu-item-21509"
 								class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
 								class="menu-item-link"
-								href="NewFile.html">登录</a></li>
+								href="#">登录</a></li>
 							<li id="menu-item-20493"
 								class="menu-item menu-item-type-post_type menu-item-object-page no-mega-menu"><a
 								class="menu-item-link"
@@ -161,7 +188,7 @@ body, .theme-main-wrapper {
 						<td><input type="hidden" name="actiontype" value="login"></td>
 						<td  align="right"><input type="submit"
 							name="Submit" value="登录"></td>
-						<td align="center"><a href="Register.html"><input type="button" 
+						<td align="center"><a href="Register.jsp"><input type="button" 
 							 name="Button" value="注册"></a></td>
 							 <td></td>
 					</tr>
@@ -186,25 +213,25 @@ body, .theme-main-wrapper {
 							</tr>
 							<tr>
 								<td rowspan="5"></td>
-								<td rowspan="5">11111</td>
+								<td rowspan="5">本系统为广大用户提供网上订餐的功能，使得广大用户可以足不出户就能快速便捷的了解到菜品详情，并且能够在网上下单点菜！</td>
 								<td>陈佳</td>
 								<td>常见问题</td>
 								<td rowspan="5"></td>
 							</tr>
 							<tr>
-								<td>陈佳</td>
+								<td>田媛</td>
 								<td>在线客服</td>
 							</tr>
 							<tr>
-								<td>陈佳</td>
+								<td>吕文娇</td>
 								<td>我要加盟</td>
 							</tr>
 							<tr>
-								<td>陈佳</td>
+								<td>刘晓宇</td>
 								<td>市场合作</td>
 							</tr>
 							<tr>
-								<td>陈佳</td>
+								<td></td>
 								<td>捐赠</td>
 							</tr>
 						</table>

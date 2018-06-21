@@ -38,18 +38,11 @@ public class AddAddress extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Enumeration em = request.getParameterNames();
 		System.out.println("1addd");
-		// while (em.hasMoreElements()) {
-		//    String name = (String) em.nextElement();
-		//   String value = request.getParameter(name);
-		//   System.out.println(name+" :  "+value); 
-		//}
 		String addressString = request.getParameter("message");
 		IAddressDao addressDao = new AddressDaoImpl();
 		Address address = new Address();
 		
 		HttpSession session = request.getSession(false);
-		//User loginuser=(User)session.getAttribute("loginuser");
-		//address.setAduserid(loginuser.getUserid());
 		address.setAduserid(1);
 		String[] adds=addressString.split(",");
 		address.setAdaddress(adds[0]);

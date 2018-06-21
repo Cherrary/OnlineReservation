@@ -78,6 +78,7 @@ public class Register extends HttpServlet {
 			User user = new User();
 			user.setUsername(request.getParameter("loginName"));
 			user.setUserpassword(request.getParameter("loginPass"));
+			user.setUserphone(request.getParameter("phone"));
 			if(userDao.InsertUser(user)==1){
 				System.out.println("×¢²á³É¹¦");
 				response.sendRedirect("regsuccess.jsp");
@@ -93,7 +94,6 @@ public class Register extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

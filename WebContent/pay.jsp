@@ -199,91 +199,100 @@ h2 {
 </style>
 </head>
 <body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
-	<header 	align=" center">
+	<header align=" center">
 	<h1>我学我会网上订餐系统订单支付</h1>
 	</header>
-		<form name=alipayment action=alipay.trade.page.pay.jsp method=post
-			target="_blank">
-			<div id="body1" class="show" name="divcontent">
-				<dl class="content">
-					<dt>商户订单号 ：</dt>
-					<dd>
-						<input id="WIDout_trade_no" name="WIDout_trade_no" value="${requestScope.WIDout_trade_no }" readonly="readonly" />
-					</dd>
-					<hr class="one_line">
-					<dt>订单名称 ：</dt>
-					<dd>
-						<input id="WIDsubject" name="WIDsubject" value="我学我会网上订餐"
-							readonly="readonly" />
-					</dd>
-					<hr class="one_line">
-					<dt>订单详情 ：</dt>
-					<dd>
-					<input  />
-						<table width="60%" border="0" align="CENTER" cellpadding="2"
-							cellspacing="1" bgcolor="#c0c0c0">
-							<c:forEach var="carditems" items="${sessionScope.card}">
-								<tr bgcolor="#ffffff">
-									<td align="center" width="50%" height="22"><font color="#000000">${carditems.value.dish.diname}</font>
-										<input type="hidden" name="prodid" value="500047"></td>
-									<td width="20%" class="hh" align="center" height="22">
-										x${carditems.value.quantity}</td>
-									<td width="20%" class="bb" align="center" height="22"><font
-										color="#000000">${carditems.value.dish.diprice*carditems.value.quantity}</font>
-									</td>
-								</tr>
-							</c:forEach>
-						</table>
-					</dd>
-					<hr class="one_line">
-					<dt>付款金额 ：</dt>
-					<dd>
-						<input id="WIDtotal_amount" name="WIDtotal_amount"
-							value="${sessionScope.sum }" readonly="readonly" />
-					</dd>
-					<hr class="one_line">
-					<dt>用户备注：</dt>
-					<dd>
-						<input id="WIDbody" name="WIDbody" />
-					</dd>
-					<hr class="one_line">
-					<dt>地址选择 ：</dt>
-					<Br>
-					<form action="radio_submit" method="get" >
-						<table width="60%" border="0" align="CENTER" cellpadding="2"
-							cellspacing="1" >
-							<tr><td colspan="2" align="left" ><strong>地址选择</strong></td>
-							<td colspan="2" align="right"><button id="input-type-multiple" type="button" style="background-color:#ffffff;border:0"><img src="images/plus.png"  ></button> </td></tr>
-							<c:forEach var="addressitems" items="${sessionScope.addresslist}">
-								<tr bgcolor="#ffffff">
-									<td  width="5%" align="center"><input type="radio" name="address" value="${addressitems.adid }" checked />${addressitems.adid }</td>
-									<td align="center" width="50%" height="22"><font color="#000000">${addressitems.adaddress}</font>
-										<input type="hidden" name="prodid" value="500047"></td>
-									<td width="25%" class="hh" align="center" height="22">
-										${addressitems.adlinkman}</td>
-									<td width="20%" class="bb" align="center" height="22"><font
-										color="#000000">${addressitems.adphone}</font>
-									</td>
-								</tr>
-							</c:forEach>
-						</table>
-						</form>
-					<hr class="one_line">
-					<dt></dt>
-					<dd id="btn-dd">
-						<span class="new-btn-login-sp">
-							<button class="new-btn-login" type="submit"
-								style="text-align: center;">付 款</button>
-						</span> <span class="note-help">如果您点击“付款”按钮，即表示您同意该次的执行操作。</span>
-					</dd>
-				</dl>
-			</div>
-		</form>
-		<div id="foot">
-			<ul class="foot-ul">
-				<li>支付宝版权所有 2015-2018 ALIPAY.COM</li>
-			</ul>
+	<form name=alipayment action=alipay.trade.page.pay.jsp method=post
+		target="_blank">
+		<div id="body1" class="show" name="divcontent">
+			<dl class="content">
+				<dt>商户订单号 ：</dt>
+				<dd>
+					<input id="WIDout_trade_no" name="WIDout_trade_no"
+						value="${requestScope.WIDout_trade_no }" readonly="readonly" />
+				</dd>
+				<hr class="one_line">
+				<dt>订单名称 ：</dt>
+				<dd>
+					<input id="WIDsubject" name="WIDsubject" value="我学我会网上订餐"
+						readonly="readonly" />
+				</dd>
+				<hr class="one_line">
+				<dt>订单详情 ：</dt>
+				<dd>
+					<input />
+					<table width="60%" border="0" align="CENTER" cellpadding="2"
+						cellspacing="1" bgcolor="#c0c0c0">
+						<c:forEach var="carditems" items="${sessionScope.card}">
+							<tr bgcolor="#ffffff">
+								<td align="center" width="50%" height="22"><font
+									color="#000000">${carditems.value.dish.diname}</font> <input
+									type="hidden" name="prodid" value="500047"></td>
+								<td width="20%" class="hh" align="center" height="22">
+									x${carditems.value.quantity}</td>
+								<td width="20%" class="bb" align="center" height="22"><font
+									color="#000000">${carditems.value.dish.diprice*carditems.value.quantity}</font>
+								</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</dd>
+				<hr class="one_line">
+				<dt>付款金额 ：</dt>
+				<dd>
+					<input id="WIDtotal_amount" name="WIDtotal_amount"
+						value="${sessionScope.sum }" readonly="readonly" />
+				</dd>
+				<hr class="one_line">
+				<dt>用户备注：</dt>
+				<dd>
+					<input id="WIDbody" name="WIDbody" />
+				</dd>
+				<hr class="one_line">
+				<dt>地址选择 ：</dt>
+				<Br>
+				<form action="radio_submit" method="get">
+					<table width="60%" border="0" align="CENTER" cellpadding="2"
+						cellspacing="1">
+						<tr>
+							<td colspan="2" align="left"><strong>地址选择</strong></td>
+							<td colspan="2" align="right"><button
+									id="input-type-multiple" type="button"
+									style="background-color: #ffffff; border: 0">
+									<img src="images/plus.png">
+								</button></td>
+						</tr>
+						<c:forEach var="addressitems" items="${sessionScope.addresslist}">
+							<tr bgcolor="#ffffff">
+								<td width="5%" align="center"><input type="radio"
+									name="address" value="${addressitems.adid }" checked />${addressitems.adid }</td>
+								<td align="center" width="50%" height="22"><font
+									color="#000000">${addressitems.adaddress}</font> <input
+									type="hidden" name="prodid" value="500047"></td>
+								<td width="25%" class="hh" align="center" height="22">
+									${addressitems.adlinkman}</td>
+								<td width="20%" class="bb" align="center" height="22"><font
+									color="#000000">${addressitems.adphone}</font></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</form>
+				<hr class="one_line">
+				<dt></dt>
+				<dd id="btn-dd">
+					<span class="new-btn-login-sp">
+						<button class="new-btn-login" type="submit"
+							style="text-align: center;">付 款</button>
+					</span> <span class="note-help">如果您点击“付款”按钮，即表示您同意该次的执行操作。</span>
+				</dd>
+			</dl>
 		</div>
+	</form>
+	<div id="foot">
+		<ul class="foot-ul">
+			<li>支付宝版权所有 2015-2018 ALIPAY.COM</li>
+		</ul>
+	</div>
 	</div>
 	<script>
         var oDemo = document.getElementById("radio_submit");
@@ -297,10 +306,10 @@ h2 {
             }
         }, false);
     </script>
-    	<script>
+	<script>
       document.getElementById("input-type-multiple").onclick = function(){
     	  formValues =  swal({
-    		  title: '添加地址',
+    		  title: '<font size="3">添加地址</font>',
     		  width:600,
     		  html:
     		    '<table cellSpacing=2 cellPadding=2 width="100%" border=0><tr><td width="20%"  align="right" style="vertical-align: middle; ">详细地址<font color="#DC143C"><i>*</i></font>&nbsp;&nbsp;：</td><td width="80%">'+
@@ -308,6 +317,7 @@ h2 {
     		    '<tr><td align="right" style="vertical-align: middle; ">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名<font color="#DC143C"><i>*</i></font>&nbsp;&nbsp;：</td><td align="left"><input id="swal-input2"  placeholder="长度不超过25个字符" ></td></tr>'+
     		    '<tr><td align="right"  style="vertical-align: middle; ">手机号码<font color="#DC143C"><i>*</i></font>&nbsp;&nbsp;：</td><td align="left"><input id="swal-input3"></td></tr></table>',
     		  focusConfirm: false,
+      		  confirmButtonColor:"#caa76a",
     		  preConfirm: () => {
     		    return [
     		      document.getElementById('swal-input1').value,
@@ -315,37 +325,86 @@ h2 {
     		      document.getElementById('swal-input3').value
     		    ]
     		  }
-    		/* }).then(function(formValues){
-    			if (formValues) {
-    				$.get('addAddress?message='+formValues)
-    				.done
-    		  	swal(JSON.stringify(formValues))
-    			}
-    		}) */
      		 }).then(function(formValues){
      			if (formValues) {
-     				//setTimeout(function(){
-     					//swal($.ajax({url:"addAddress?message="+formValues}))
      					var ajaxObj = new XMLHttpRequest();
      					var reg = new RegExp('"',"g"); 
      					var h=JSON.stringify(formValues);
      					h=h.replace(reg,"");
      					h=h.substring(8);
      					h=h.substring(0,h.length-2);
-     					swal(h);
-     					ajaxObj.open('get', 'addAddress?message='+h);
-     					//swal('addAddress?message='+h);
+     					var htrings=h.split(",");
+     					if(htrings[0]==""){
+     						swal({
+	     						title:'<font size="3">地址不能为空</font>',
+	     						type:'error',
+	     						width:600,
+	     						confirmButtonText: 'OK',
+	     					    showCancelButton: false,
+	     				  		confirmButtonColor:"#caa76a"	     					    
+	     					});
+     						return false;
+     					}
+     					if(htrings[1]==""){
+     						swal({
+	     						title:'<font size="3">联系人不能为空</font>',
+	     						type:'error',
+	     						 width:600,
+	     						confirmButtonText: 'OK',
+	     					    showCancelButton: false,
+	     				  		confirmButtonColor:"#caa76a"
+	     					});
+     						return false;
+     					}
+     					if(htrings[2]==""){
+     						swal({
+	     						title:'<font size="3">电话号码不能为空</font>',
+	     						type:'error',
+	     						 width:600,
+	     						confirmButtonText: 'OK',
+	     					    showCancelButton: false,
+	     				  		confirmButtonColor:"#caa76a"
+	     					});
+     						return false;
+     					}
+     					var reg = /^1[3|5|8]\\d{9}$/;
+     					if(!reg.test(htrings[2])){
+     						swal({
+	     						title:'<font size="3">手机号码格式不正确</font>',
+	     						type:'error',
+	     						 width:600,
+	     						confirmButtonText: 'OK',
+	     					    showCancelButton: false,
+	     				  		confirmButtonColor:"#caa76a"
+	     					})
+	     					return false;
+     					}
+     					ajaxObj.open('get', 'addAddress?message='+h,false);
      					ajaxObj.send();
-     					swal({
-     						title:'Success'+ajaxObj.responseText,
-     						type:'success',
-     						confirmButtonText: 'OK',
-     					    showCancelButton: false
-     					})
-     					 }
+     					if(ajaxObj.responseText==1){
+	     					swal({
+	     						title:'<font size="3">添加成功，请刷新显示！</font>',
+	     						type:'success',
+	     						 width:600,
+	     						confirmButtonText: 'OK',
+	     					    showCancelButton: false,
+	     				  		confirmButtonColor:"#caa76a"
+	     					})
+     					}
+     					else{
+         					swal({
+         						title:'<font size="3">失败...检查一下网络？</font>',
+         						type:'error',
+         						 width:300,
+         						confirmButtonText: 'OK',
+         					    showCancelButton: false,
+	     				  		confirmButtonColor:"#caa76a"
+         					})
+     					}
+    				}
      			})
     	};
 	</script>
-    
+
 </body>
 </html>
